@@ -1,0 +1,74 @@
+[gd_scene load_steps=10 format=3 uid="uid://dwkfdyvriv0g7"]
+
+[ext_resource type="Texture2D" uid="uid://demptygyxv6m3" path="res://asset/Sprout Lands - Sprites - Basic pack/Sprout Lands - Sprites - Basic pack/Characters/Free Cow Sprites.png" id="1_8mrtn"]
+[ext_resource type="Script" path="res://component/caracter/cow/cow.gd" id="1_urlpq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7unhj"]
+size = Vector2(32, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7i53p"]
+atlas = ExtResource("1_8mrtn")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4tif2"]
+atlas = ExtResource("1_8mrtn")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36bij"]
+atlas = ExtResource("1_8mrtn")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_beqgq"]
+atlas = ExtResource("1_8mrtn")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fsytb"]
+atlas = ExtResource("1_8mrtn")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_362ai"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7i53p")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_4tif2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 0.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36bij")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_beqgq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fsytb")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="cow" type="CharacterBody2D"]
+script = ExtResource("1_urlpq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_7unhj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_362ai")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.547654
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+target_desired_distance = 40.0
+debug_enabled = true
+
+[connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
