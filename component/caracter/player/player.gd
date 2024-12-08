@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
 class_name Player
-@export var speed:int = 3000
+@export var speed:int = 200
+@export var cow_manager:CowManager
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,6 +12,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	_move()
+	_call_cow()
 	move_and_slide()
 
 
@@ -32,3 +34,7 @@ func _change_sprite(direction:Vector2)->void:
 			$AnimatedSprite2D.play("down")
 	else:
 		$AnimatedSprite2D.stop()
+
+func _call_cow()->void:
+	if Input.is_action_just_pressed("switch_mode"):
+		cow_manager._change_mode()

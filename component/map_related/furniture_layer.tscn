@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://btd8l36f0u88"]
+
+[ext_resource type="Texture2D" uid="uid://dl8qf7lpm8luj" path="res://asset/Sprout Lands - Sprites - Basic pack/Sprout Lands - Sprites - Basic pack/Objects/Basic_Furniture.png" id="1_senvq"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6lmo3"]
+texture = ExtResource("1_senvq")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_g78qe"]
+sources/0 = SubResource("TileSetAtlasSource_6lmo3")
+
+[node name="furniture_layer" type="TileMapLayer"]
+tile_set = SubResource("TileSet_g78qe")
