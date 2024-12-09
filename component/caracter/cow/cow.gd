@@ -1,16 +1,19 @@
 extends CharacterBody2D
 
 class_name Cow
-@export var range:int = 100
+@export var scatter_range:int = 100
 @export var waypoint:Waypoint
 
 var speed:int = 100
 var can_move:bool = false
 var is_following_the_player:bool = false
 
+var curent_happiness:int = 50
+var current_feedness:int = 50
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	_move()
 	move_and_slide()
 
@@ -46,7 +49,7 @@ func _chose_new_target()->void:
 	
 
 func generate_range()->int:
-	return randi_range(-range,range)
+	return randi_range(-scatter_range,scatter_range)
 
 func _on_navigation_agent_2d_navigation_finished() -> void:
 	if not is_following_the_player:

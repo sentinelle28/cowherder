@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cy6jvq7y8855g"]
+[gd_scene load_steps=23 format=3 uid="uid://cy6jvq7y8855g"]
 
 [ext_resource type="Texture2D" uid="uid://ceiu8bn2xsvmj" path="res://asset/Sprout Lands - Sprites - Basic pack/Sprout Lands - Sprites - Basic pack/Characters/Basic Charakter Spritesheet.png" id="1_qy7xf"]
 [ext_resource type="Script" path="res://component/caracter/player/player.gd" id="1_vc5lp"]
@@ -153,7 +153,10 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_boay3"]
 radius = 8.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_lw4mw"]
+
 [node name="player" type="CharacterBody2D"]
+collision_mask = 2
 script = ExtResource("1_vc5lp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -166,3 +169,12 @@ shape = SubResource("CircleShape2D_boay3")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
+
+[node name="cow_detector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cow_detector"]
+shape = SubResource("CircleShape2D_lw4mw")
+debug_color = Color(0.95865, 1.92523e-07, 0.525973, 0.42)
+
+[connection signal="body_entered" from="cow_detector" to="." method="_on_cow_detector_body_entered"]
+[connection signal="body_exited" from="cow_detector" to="." method="_on_cow_detector_body_exited"]

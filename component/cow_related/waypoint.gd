@@ -5,7 +5,7 @@ class_name Waypoint
 var is_following_the_player:bool = false
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if is_following_the_player:
 		global_position = player.global_position
 
