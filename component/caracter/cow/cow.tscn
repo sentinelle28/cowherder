@@ -72,8 +72,13 @@ frame_progress = 0.547654
 target_desired_distance = 40.0
 debug_enabled = true
 
-[node name="Timer" type="Timer" parent="."]
+[node name="wait_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="milk_timer" type="Timer" parent="."]
+wait_time = 10.0
 one_shot = true
 
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="wait_timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="milk_timer" to="." method="_on_milk_timer_timeout"]

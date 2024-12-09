@@ -13,6 +13,8 @@ extends CanvasLayer
 func _update_meter()->void:
 	happinessmeter.value = current_inspected_cow.curent_happiness
 	fulnessmeter.value = current_inspected_cow.current_feedness
+	$Panel/milkmeter.value = current_inspected_cow.current_amount_of_milk
+	$Panel/milkmeter.tint_progress = current_inspected_cow.milk_color
 
 
 func _inspect_cow(cow_to_inspect:Cow)->void:
@@ -38,7 +40,12 @@ func _on_submitbutton_pressed() -> void:
 		namelabel.show()
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("escape"):
-		hide()
-		get_tree().paused = false
+	if Input.is_action_just_pressed("escape") and visible:
+		_quit()
 		
+func _quit()->void:
+	hide()
+	get_tree().paused = false
+
+func _on_exit_button_pressed() -> void:
+	_quit()

@@ -4,12 +4,22 @@ class_name Cow
 @export var scatter_range:int = 100
 @export var waypoint:Waypoint
 
+@export_group("milk")
+@export var milk_color:Color
+@export var amount_of_milk_created:int = 3
+@export var time_to_produce_milk:float = 10
+@export var name_of_the_cow:String = "Common" 
+var current_amount_of_milk:int = 0
+
 var speed:int = 100
 var can_move:bool = false
 var is_following_the_player:bool = false
 
 var curent_happiness:int = 50
 var current_feedness:int = 50
+
+func _ready() -> void:
+	$milk_timer.start(time_to_produce_milk)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -53,10 +63,18 @@ func generate_range()->int:
 
 func _on_navigation_agent_2d_navigation_finished() -> void:
 	if not is_following_the_player:
-		$Timer.start(randi_range(2,7))
+		$wait_timer.start(randi_range(2,7))
 		can_move = false
 
 
 func _on_timer_timeout() -> void:
 	can_move = true
 	_chose_new_target()
+
+
+func _on_milk_timer_timeout() -> void:
+	$milk_timer.start(time_to_produce_milk)
+	if curent_happiness >= 50 and current_feedness >= 30:
+		current_feedness -= 10
+		current_amount_of_milk += amount_of_milk_created
+		current_amount_of_milk = clampi(current_amount_of_milk,0,100)
