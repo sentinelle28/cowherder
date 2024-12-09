@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://c00jl1tua70by"]
+
+[ext_resource type="Script" path="res://autolaud/daycyle/daycycle.gd" id="1_spr8q"]
+
+[sub_resource type="Gradient" id="Gradient_0t0vy"]
+offsets = PackedFloat32Array(0, 0.209615, 0.294231, 0.384615, 0.507692, 1)
+colors = PackedColorArray(0, 0, 0.494118, 1, 0.411765, 0.156863, 0.737255, 1, 1, 0.286275, 0.776471, 1, 1, 0.588235, 0.592157, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_u2ppi"]
+gradient = SubResource("Gradient_0t0vy")
+
+[node name="daycycle" type="CanvasModulate"]
+script = ExtResource("1_spr8q")
+gradient = SubResource("GradientTexture1D_u2ppi")
+TimeSpeed = 10.0

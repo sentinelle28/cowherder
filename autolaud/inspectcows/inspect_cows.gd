@@ -46,6 +46,7 @@ func _process(_delta: float) -> void:
 func _quit()->void:
 	hide()
 	get_tree().paused = false
+	Daycycle._start()
 
 func _on_exit_button_pressed() -> void:
 	_quit()

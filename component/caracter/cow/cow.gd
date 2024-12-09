@@ -9,7 +9,7 @@ class_name Cow
 @export var amount_of_milk_created:int = 3
 @export var time_to_produce_milk:float = 10
 @export var name_of_the_cow:String = "Common" 
-var current_amount_of_milk:int = 0
+
 
 var speed:int = 100
 var can_move:bool = false
@@ -17,6 +17,9 @@ var is_following_the_player:bool = false
 
 var curent_happiness:int = 50
 var current_feedness:int = 50
+var current_amount_of_milk:int = 0
+
+var is_sleeping:bool = false
 
 func _ready() -> void:
 	$milk_timer.start(time_to_produce_milk)
@@ -29,15 +32,22 @@ func _process(_delta: float) -> void:
 
 
 func _move()->void:
-	if can_move:
-		if is_following_the_player:
-			_follow_the_player()
+	velocity = Vector2.ZERO
+	$AnimatedSprite2D.play("idle")
+	if can_move and is_following_the_player:
+		_follow_the_player()
 		var direction:Vector2 = global_position.direction_to($NavigationAgent2D.get_next_path_position())
 		velocity = direction*speed
 		_walk_sprite(direction.x)
-	else:
-		velocity = Vector2.ZERO
-		$AnimatedSprite2D.play("idle")
+	elif can_move and not is_following_the_player:
+		if not is_sleeping:
+			var direction:Vector2 = global_position.direction_to($NavigationAgent2D.get_next_path_position())
+			velocity = direction*speed
+			_walk_sprite(direction.x)
+			$AnimationPlayer.play("RESET")
+		else:
+			$AnimationPlayer.play("sleeping")
+	
 
 func _walk_sprite(x_direction:float)->void:
 	$AnimatedSprite2D.play("walk")
@@ -68,13 +78,18 @@ func _on_navigation_agent_2d_navigation_finished() -> void:
 
 
 func _on_timer_timeout() -> void:
-	can_move = true
-	_chose_new_target()
+	if not Daycycle.is_night():
+		is_sleeping = false
+		can_move = true
+		_chose_new_target()
+	else:
+		$wait_timer.start(10)
+		is_sleeping = true
 
 
 func _on_milk_timer_timeout() -> void:
 	$milk_timer.start(time_to_produce_milk)
-	if curent_happiness >= 50 and current_feedness >= 30:
+	if curent_happiness >= 50 and current_feedness >= 30 and not is_sleeping:
 		current_feedness -= 10
 		current_amount_of_milk += amount_of_milk_created
 		current_amount_of_milk = clampi(current_amount_of_milk,0,100)

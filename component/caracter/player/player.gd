@@ -5,6 +5,8 @@ class_name Player
 @export var cow_manager:CowManager
 @export var last_cow:Cow
 
+func _ready() -> void:
+	Daycycle._start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -41,6 +43,7 @@ func _inspect_cow()->void:
 	if Input.is_action_just_pressed("inspect"):
 		if last_cow != null:
 			InspectCows._inspect_cow(last_cow)
+			Daycycle._stop()
 
 func _on_cow_detector_body_entered(body: Node2D) -> void:
 	if body is Cow:
