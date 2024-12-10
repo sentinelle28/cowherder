@@ -5,10 +5,9 @@ class_name Cow
 @export var waypoint:Waypoint
 
 @export_group("milk")
-@export var milk_color:Color
 @export var amount_of_milk_created:int = 3
 @export var time_to_produce_milk:float = 10
-@export var name_of_the_cow:String = "Common" 
+@export var milk_name:String = "Common" 
 
 
 var speed:int = 100
@@ -17,7 +16,6 @@ var is_following_the_player:bool = false
 
 var curent_happiness:int = 50
 var current_feedness:int = 50
-var current_amount_of_milk:int = 0
 
 var is_sleeping:bool = false
 
@@ -91,5 +89,19 @@ func _on_milk_timer_timeout() -> void:
 	$milk_timer.start(time_to_produce_milk)
 	if curent_happiness >= 50 and current_feedness >= 30 and not is_sleeping:
 		current_feedness -= 10
-		current_amount_of_milk += amount_of_milk_created
-		current_amount_of_milk = clampi(current_amount_of_milk,0,100)
+		
+		Inventory._add_milk(milk_name)
+
+
+func get_milk_color()->Color:
+	return Inventory.get_milk_color(milk_name)
+
+func get_amount_of_milk()->int:
+	return Inventory.get_amount_of_milk(milk_name)
+
+
+func _gain_happiness()->void:
+	curent_happiness += randi_range(0,3)
+	
+func _lose_happiness()->void:
+	curent_happiness += randi_range(-4,-1)
