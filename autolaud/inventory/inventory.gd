@@ -10,7 +10,6 @@ class Milk:
 		
 	func _add_milk()->void:
 		number_in_stock += 1
-		number_in_stock = clampi(number_in_stock,0,100)
 		
 	func has_milk(number_of_milk_needed:int)->bool:
 		return number_in_stock > number_of_milk_needed

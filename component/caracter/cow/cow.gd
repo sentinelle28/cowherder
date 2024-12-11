@@ -14,6 +14,8 @@ var speed:int = 100
 var can_move:bool = false
 var is_following_the_player:bool = false
 
+var current_amount_of_milk:int = 0
+
 var curent_happiness:int = 50
 var current_feedness:int = 50
 
@@ -89,15 +91,18 @@ func _on_milk_timer_timeout() -> void:
 	$milk_timer.start(time_to_produce_milk)
 	if curent_happiness >= 50 and current_feedness >= 30 and not is_sleeping:
 		current_feedness -= 10
-		
-		Inventory._add_milk(milk_name)
+		amount_of_milk_created += randi_range(2,10)
+		amount_of_milk_created = clampi(amount_of_milk_created,0,100)
+		if amount_of_milk_created == 100:
+			amount_of_milk_created = 0
+			Inventory._add_milk(milk_name)
 
 
 func get_milk_color()->Color:
 	return Inventory.get_milk_color(milk_name)
 
 func get_amount_of_milk()->int:
-	return Inventory.get_amount_of_milk(milk_name)
+	return amount_of_milk_created
 
 
 func _gain_happiness()->void:

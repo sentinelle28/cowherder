@@ -1,0 +1,122 @@
+[gd_scene load_steps=5 format=3 uid="uid://rjfqx5hgfhm8"]
+
+[ext_resource type="Script" path="res://autolaud/handbook/handbook.gd" id="1_1dmga"]
+[ext_resource type="Texture2D" uid="uid://bb15env6xjvf8" path="res://asset/ui/Menu Buttons/Icons/Arrow2.png" id="2_jcvsq"]
+[ext_resource type="Texture2D" uid="uid://dwa0552n0djiy" path="res://asset/ui/Menu Buttons/Icons/Arrow.png" id="3_1cpkv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_n7l87"]
+font_size = 30
+
+[node name="Handbook" type="CanvasLayer"]
+process_mode = 2
+visible = false
+script = ExtResource("1_1dmga")
+
+[node name="page_stocker" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="first_page" type="Panel" parent="page_stocker"]
+layout_mode = 1
+offset_left = -256.0
+offset_top = -260.0
+offset_right = 256.0
+offset_bottom = 259.0
+
+[node name="Control" type="Control" parent="page_stocker/first_page"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -191.5
+offset_right = 192.0
+offset_bottom = 128.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="page_stocker/first_page/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Pratical Handbook"
+label_settings = SubResource("LabelSettings_n7l87")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="page_stocker/first_page/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -100.0
+offset_right = 128.0
+offset_bottom = 156.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="page_stocker/first_page/Control/VBoxContainer"]
+layout_mode = 2
+text = "Summary:"
+
+[node name="button" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -220.0
+offset_right = 192.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="previous" type="Button" parent="button"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -69.0
+offset_right = 56.0
+grow_vertical = 0
+size_flags_vertical = 8
+icon = ExtResource("2_jcvsq")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="next" type="Button" parent="button"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -56.0
+offset_top = -69.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_vertical = 8
+icon = ExtResource("3_1cpkv")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="pressed" from="button/previous" to="." method="_on_previous_pressed"]
+[connection signal="pressed" from="button/next" to="." method="_on_next_pressed"]

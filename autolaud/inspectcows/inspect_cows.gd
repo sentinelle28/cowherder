@@ -14,6 +14,7 @@ func _update_meter()->void:
 	happinessmeter.value = current_inspected_cow.curent_happiness
 	fulnessmeter.value = current_inspected_cow.current_feedness
 	$Panel/milkmeter.value = current_inspected_cow.get_amount_of_milk()
+	print($Panel/milkmeter.value)
 	$Panel/milkmeter.tint_progress = current_inspected_cow.get_milk_color()
 
 
@@ -22,6 +23,7 @@ func _inspect_cow(cow_to_inspect:Cow)->void:
 	show()
 	current_inspected_cow = cow_to_inspect
 	namelabel.text = cow_to_inspect.name
+	$Panel/species.text = "species: " + cow_to_inspect.milk_name + " cow"
 	_update_meter()
 	
 

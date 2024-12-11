@@ -5,14 +5,17 @@ class_name Player
 @export var cow_manager:CowManager
 @export var last_cow:Cow
 
+var tool_list:Array[Callable] = [_show_handbook,_call_cow,_inspect_cow]
+
 func _ready() -> void:
 	Daycycle._start()
+	ToolInventory.show()
+	ToolInventory._reset_tool()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	_move()
-	_inspect_cow()
-	_call_cow()
+	_use_tool()
 	move_and_slide()
 
 
@@ -36,14 +39,12 @@ func _change_sprite(direction:Vector2)->void:
 		$AnimatedSprite2D.stop()
 
 func _call_cow()->void:
-	if Input.is_action_just_pressed("switch_mode"):
-		cow_manager._change_mode()
+	cow_manager._change_mode()
 
 func _inspect_cow()->void:
-	if Input.is_action_just_pressed("inspect"):
-		if last_cow != null:
-			InspectCows._inspect_cow(last_cow)
-			Daycycle._stop()
+	if last_cow != null:
+		InspectCows._inspect_cow(last_cow)
+		Daycycle._stop()
 
 func _on_cow_detector_body_entered(body: Node2D) -> void:
 	if body is Cow:
@@ -53,3 +54,11 @@ func _on_cow_detector_body_entered(body: Node2D) -> void:
 func _on_cow_detector_body_exited(body: Node2D) -> void:
 	if body == last_cow:
 		last_cow = null
+
+
+func _use_tool()->void:
+	if Input.is_action_just_pressed("use_tool"):
+		tool_list[ToolInventory.get_current_tool()].call()
+		
+func _show_handbook()->void:
+	Handbook._show_handbook()

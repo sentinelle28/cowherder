@@ -1,0 +1,70 @@
+[gd_scene load_steps=8 format=3 uid="uid://bcwwu7qnm8rww"]
+
+[ext_resource type="Script" path="res://autolaud/tool_inventory/tool_inventory.gd" id="1_3tht5"]
+[ext_resource type="Texture2D" uid="uid://bl34t2f78bmvi" path="res://asset/ui/Menu Buttons/Icons/Arrow4.png" id="2_ailgr"]
+[ext_resource type="Texture2D" uid="uid://cugyihdnnksgn" path="res://asset/ui/Menu Buttons/Icons/Question.png" id="2_g0bcl"]
+[ext_resource type="Texture2D" uid="uid://divtaifex7cwc" path="res://asset/ui/Menu Buttons/Icons/Megaphone.png" id="3_b1esb"]
+[ext_resource type="Texture2D" uid="uid://bfqe3dc47vm5m" path="res://asset/ui/Menu Buttons/Icons/Arrow3.png" id="3_tpnj2"]
+[ext_resource type="Texture2D" uid="uid://cm6vd8icyojnp" path="res://asset/ui/Menu Buttons/Icons/Exclamation.png" id="4_bfowd"]
+[ext_resource type="Texture2D" uid="uid://822eqqyvy4ul" path="res://asset/ui/Menu Buttons/Icons/Email.png" id="6_wx77x"]
+
+[node name="Tool_inventory" type="CanvasLayer"]
+script = ExtResource("1_3tht5")
+texture_array = Array[Texture2D]([ExtResource("2_g0bcl"), ExtResource("3_b1esb"), ExtResource("4_bfowd")])
+
+[node name="HBoxContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -168.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="left" type="Sprite2D" parent="HBoxContainer"]
+position = Vector2(19.75, 100.091)
+scale = Vector2(2.19697, 2.19697)
+texture = ExtResource("2_ailgr")
+
+[node name="Label" type="Label" parent="HBoxContainer/left"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.5
+offset_top = -29.5
+offset_right = 3.5
+offset_bottom = -6.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Q"
+horizontal_alignment = 1
+
+[node name="tool" type="Sprite2D" parent="HBoxContainer"]
+position = Vector2(144, 88)
+scale = Vector2(2, 2)
+texture = ExtResource("6_wx77x")
+
+[node name="right" type="Sprite2D" parent="HBoxContainer"]
+position = Vector2(264, 104)
+scale = Vector2(2.19697, 2.19697)
+texture = ExtResource("3_tpnj2")
+
+[node name="Label" type="Label" parent="HBoxContainer/right"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -29.0
+offset_right = 4.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "E"
+horizontal_alignment = 1
