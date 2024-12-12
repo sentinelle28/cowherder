@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://rjfqx5hgfhm8"]
+[gd_scene load_steps=7 format=3 uid="uid://rjfqx5hgfhm8"]
 
 [ext_resource type="Script" path="res://autolaud/handbook/handbook.gd" id="1_1dmga"]
 [ext_resource type="Texture2D" uid="uid://bb15env6xjvf8" path="res://asset/ui/Menu Buttons/Icons/Arrow2.png" id="2_jcvsq"]
+[ext_resource type="Theme" uid="uid://c07dob5nypfph" path="res://asset/handbook/handbook.tres" id="2_v1vrg"]
 [ext_resource type="Texture2D" uid="uid://dwa0552n0djiy" path="res://asset/ui/Menu Buttons/Icons/Arrow.png" id="3_1cpkv"]
+[ext_resource type="LabelSettings" uid="uid://c1hf54av562hi" path="res://autolaud/handbook/title_label_setting.tres" id="3_upe3m"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_n7l87"]
-font_size = 30
+[sub_resource type="LabelSettings" id="LabelSettings_4n26a"]
+font_size = 25
 
 [node name="Handbook" type="CanvasLayer"]
 process_mode = 2
@@ -28,6 +30,7 @@ offset_left = -256.0
 offset_top = -260.0
 offset_right = 256.0
 offset_bottom = 259.0
+theme = ExtResource("2_v1vrg")
 
 [node name="Control" type="Control" parent="page_stocker/first_page"]
 layout_mode = 1
@@ -53,7 +56,7 @@ offset_right = 20.0
 offset_bottom = 23.0
 grow_horizontal = 2
 text = "Pratical Handbook"
-label_settings = SubResource("LabelSettings_n7l87")
+label_settings = ExtResource("3_upe3m")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="page_stocker/first_page/Control"]
 layout_mode = 1
@@ -69,9 +72,91 @@ offset_bottom = 156.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="page_stocker/first_page/Control/VBoxContainer"]
+[node name="summary" type="Label" parent="page_stocker/first_page/Control/VBoxContainer"]
 layout_mode = 2
 text = "Summary:"
+
+[node name="first_content" type="Label" parent="page_stocker/first_page/Control/VBoxContainer"]
+layout_mode = 2
+text = "- Movement ( p1 )"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="page_stocker/first_page/Control/VBoxContainer"]
+layout_mode = 2
+text = "- call cow guide ( p2 )"
+horizontal_alignment = 1
+
+[node name="second_page" type="Panel" parent="page_stocker"]
+visible = false
+layout_mode = 1
+offset_left = -256.0
+offset_top = -260.0
+offset_right = 256.0
+offset_bottom = 259.0
+theme = ExtResource("2_v1vrg")
+
+[node name="Control" type="Control" parent="page_stocker/second_page"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -195.5
+offset_right = 192.0
+offset_bottom = 148.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="page_stocker/second_page/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Movement guide"
+label_settings = ExtResource("3_upe3m")
+horizontal_alignment = 1
+
+[node name="third_page" type="Panel" parent="page_stocker"]
+visible = false
+layout_mode = 1
+offset_left = -256.0
+offset_top = -260.0
+offset_right = 256.0
+offset_bottom = 259.0
+theme = ExtResource("2_v1vrg")
+
+[node name="Control" type="Control" parent="page_stocker/third_page"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -195.5
+offset_right = 192.0
+offset_bottom = 148.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="page_stocker/third_page/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Call Cow tool"
+label_settings = ExtResource("3_upe3m")
+horizontal_alignment = 1
 
 [node name="button" type="Control" parent="."]
 layout_mode = 3
@@ -117,6 +202,21 @@ icon = ExtResource("3_1cpkv")
 flat = true
 icon_alignment = 1
 expand_icon = true
+
+[node name="page_number" type="Label" parent="button"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_4n26a")
+horizontal_alignment = 1
 
 [connection signal="pressed" from="button/previous" to="." method="_on_previous_pressed"]
 [connection signal="pressed" from="button/next" to="." method="_on_next_pressed"]

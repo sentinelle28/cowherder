@@ -5,7 +5,7 @@ var max_page:int = 3
 
 
 func _change_tool(value:int)->void:
-	current_page -= value
+	current_page += value
 	if current_page < 0:
 		current_page = max_page - 1
 	elif current_page > max_page - 1:
@@ -20,7 +20,18 @@ func _show_handbook()->void:
 	Daycycle._stop()
 	
 func _update_page()->void:
-	pass
+	_update_page_number()
+	_update_page_content()
+	
+func _update_page_content()->void:
+	for i:int in range(max_page):
+		if i == current_page:
+			$page_stocker.get_child(i).show()
+		else:
+			$page_stocker.get_child(i).hide()
+
+func _update_page_number()->void:
+	$button/page_number.text = str(current_page)+"/"+str(max_page-1)
 	
 
 func _quit()->void:
