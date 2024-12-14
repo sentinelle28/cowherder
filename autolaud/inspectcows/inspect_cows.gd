@@ -34,7 +34,7 @@ func _on_edit_button_pressed() -> void:
 
 
 func _on_submitbutton_pressed() -> void:
-	if len( editname.text) >= 3 and current_inspected_cow != null:
+	if len( editname.text) >= 3 and current_inspected_cow != null and len(editname.text) <= 15:
 		current_inspected_cow.name = editname.text
 		namelabel.text = editname.text
 		editname.text = ""

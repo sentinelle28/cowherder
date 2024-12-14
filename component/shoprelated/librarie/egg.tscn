@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://3ell5gc7c5af"]
+
+[ext_resource type="PackedScene" uid="uid://c3btijymqmr1r" path="res://component/shoprelated/prefab_for_objet/food_template.tscn" id="1_mf7gh"]
+[ext_resource type="Texture2D" uid="uid://cy0um0a172xhn" path="res://asset/Sprout Lands - Sprites - Basic pack/Sprout Lands - Sprites - Basic pack/Objects/Egg_item.png" id="2_h0t58"]
+
+[node name="egg" instance=ExtResource("1_mf7gh")]
+texture = ExtResource("2_h0t58")
+food_name = "egg"
+color = Color(1, 0.858824, 0.290196, 1)

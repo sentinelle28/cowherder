@@ -5,7 +5,7 @@ class_name Player
 @export var cow_manager:CowManager
 @export var last_cow:Cow
 
-var tool_list:Array[Callable] = [_show_handbook,_call_cow,_inspect_cow]
+var tool_list:Array[Callable] = [_show_handbook,_call_cow,_inspect_cow,_feed_cow]
 
 func _ready() -> void:
 	Daycycle._start()
@@ -62,3 +62,14 @@ func _use_tool()->void:
 		
 func _show_handbook()->void:
 	Handbook._show_handbook()
+
+func _feed_cow()->void:
+	if last_cow != null and $hands.get_child_count() > 0:
+		last_cow._add_new_affix($hands.get_child(0))
+
+func _add_carriable_object(object:Food)->void:
+	object.reparent($hands)
+	object.position = Vector2(0,0)
+
+func can_carry(object:Food)->bool:
+	return $hands.get_child_count() == 0

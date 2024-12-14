@@ -1,9 +1,10 @@
 extends CanvasLayer
 
 var current_tool:int = 0
-var max_tool:int = 3
+@onready var max_tool:int = len(texture_array)
 @export var texture_array:Array[Texture2D] = []
 func _ready() -> void:
+
 	_update_tool_texture()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -18,11 +19,12 @@ func _input_change_tool()->void:
 		_change_tool(-1)
 		
 func _change_tool(value:int)->void:
-	current_tool -= value
+	current_tool += value
 	if current_tool < 0:
 		current_tool = max_tool - 1
 	elif current_tool > max_tool - 1:
 		current_tool = 0
+	print(current_tool)
 	_update_tool_texture()
 
 func get_current_tool()->int:

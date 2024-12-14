@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://u285fvgoscv1"]
+
+[ext_resource type="PackedScene" uid="uid://c3btijymqmr1r" path="res://component/shoprelated/prefab_for_objet/food_template.tscn" id="1_f4rq6"]
+
+[node name="default" instance=ExtResource("1_f4rq6")]
+food_name = "Common"
+color = Color(1, 1, 1, 1)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://dwkfdyvriv0g7"]
+[gd_scene load_steps=14 format=3 uid="uid://dwkfdyvriv0g7"]
 
 [ext_resource type="Texture2D" uid="uid://demptygyxv6m3" path="res://asset/Sprout Lands - Sprites - Basic pack/Sprout Lands - Sprites - Basic pack/Characters/Free Cow Sprites.png" id="1_8mrtn"]
 [ext_resource type="Script" path="res://component/caracter/cow/cow.gd" id="1_urlpq"]
+[ext_resource type="PackedScene" uid="uid://u285fvgoscv1" path="res://component/shoprelated/librarie/default.tscn" id="3_rbds4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7unhj"]
 size = Vector2(32, 13)
@@ -188,9 +189,10 @@ _data = {
 "sleeping": SubResource("Animation_5vdpe")
 }
 
-[node name="cow" type="CharacterBody2D"]
+[node name="cow" type="CharacterBody2D" node_paths=PackedStringArray("last_food")]
 collision_mask = 2
 script = ExtResource("1_urlpq")
+last_food = NodePath("default")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6.5)
@@ -231,6 +233,8 @@ offset_top = -16.0
 offset_right = 40.0
 offset_bottom = 7.0
 text = "Z"
+
+[node name="default" parent="." instance=ExtResource("3_rbds4")]
 
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
 [connection signal="timeout" from="wait_timer" to="." method="_on_timer_timeout"]

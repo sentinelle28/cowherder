@@ -52,3 +52,6 @@ func get_milk_color(milkname:String)->Color:
 	if milk != null:
 		return milk.get_milk_color()
 	return Color.WHITE
+
+func has_milk(milk_name:String)->bool:
+	return milk_name in MilkName

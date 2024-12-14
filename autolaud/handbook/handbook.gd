@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 var current_page:int = 0
-var max_page:int = 3
+@onready var max_page:int = $page_stocker.get_child_count()
 
 
 func _change_tool(value:int)->void:

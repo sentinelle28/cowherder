@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 class_name Cow
+@export_group("scatter behavior")
 @export var scatter_range:int = 100
 @export var waypoint:Waypoint
 
@@ -9,6 +10,8 @@ class_name Cow
 @export var time_to_produce_milk:float = 10
 @export var milk_name:String = "Common" 
 
+@export_group("evolution")
+@export var last_food:Food
 
 var speed:int = 100
 var can_move:bool = false
@@ -101,6 +104,7 @@ func _on_milk_timer_timeout() -> void:
 func get_milk_color()->Color:
 	return Inventory.get_milk_color(milk_name)
 
+
 func get_amount_of_milk()->int:
 	return amount_of_milk_created
 
@@ -110,3 +114,35 @@ func _gain_happiness()->void:
 	
 func _lose_happiness()->void:
 	curent_happiness += randi_range(-4,-1)
+
+func _add_new_affix(affix:Food)->void:
+	_update_name(affix)
+	_update_affix_visual(affix)
+	
+func _create_new_milk(affix_color:Color,previous_name:String)->void:
+	if not Inventory.has_milk(milk_name):
+		var temp_color:Color = (Inventory.get_milk_color(previous_name) + affix_color)/2 + get_random_color()
+		Inventory._create_new_milk(milk_name,temp_color)
+	
+func _update_name(affix:Food)->void:
+	var affix_name:String = affix.get_food_name()
+	var previous_name:String = milk_name
+	if "Common" in milk_name:
+		milk_name = affix_name
+	else:
+		milk_name += " " + affix_name
+	_create_new_milk(affix.get_color(),previous_name)
+
+func _update_affix_visual(affix:Food)->void:
+	var pos:Vector2 = Vector2(0,-3)
+	var new_angle:float = randf_range(0,PI)
+	affix.reparent(last_food)
+	affix.position = pos
+	affix.rotate(new_angle)
+	last_food = affix
+
+func get_value_in_range()->int:
+		return randi_range(-3,3)
+		
+func get_random_color()->Color:
+	return Color(get_value_in_range(),get_value_in_range(),get_value_in_range())

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3btijymqmr1r"]
+
+[ext_resource type="Script" path="res://component/shoprelated/prefab_for_objet/food_template.gd" id="1_yfoap"]
+
+[node name="food_template" type="Sprite2D"]
+script = ExtResource("1_yfoap")
