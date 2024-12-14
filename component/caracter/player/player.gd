@@ -1,11 +1,12 @@
 extends CharacterBody2D
 
 class_name Player
+signal interact_with_shop
 @export var speed:int = 200
 @export var cow_manager:CowManager
 @export var last_cow:Cow
 
-var tool_list:Array[Callable] = [_show_handbook,_call_cow,_inspect_cow,_feed_cow]
+var tool_list:Array[Callable] = [_show_handbook,_call_cow,_inspect_cow,_feed_cow,_interact_with_shop]
 
 func _ready() -> void:
 	Daycycle._start()
@@ -71,5 +72,8 @@ func _add_carriable_object(object:Food)->void:
 	object.reparent($hands)
 	object.position = Vector2(0,0)
 
-func can_carry(object:Food)->bool:
+func can_carry()->bool:
 	return $hands.get_child_count() == 0
+
+func _interact_with_shop()->void:
+	emit_signal("interact_with_shop")

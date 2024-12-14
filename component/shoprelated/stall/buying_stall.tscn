@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bx73ctemcsgl3"]
+
+[ext_resource type="PackedScene" uid="uid://dvwxlhvpfwvop" path="res://component/shoprelated/stall/stall.tscn" id="1_uxq7c"]
+[ext_resource type="Script" path="res://component/shoprelated/stall/buying_stall.gd" id="2_xwoey"]
+
+[node name="buying_stall" instance=ExtResource("1_uxq7c")]
+script = ExtResource("2_xwoey")
+
+[node name="stock" parent="." index="1"]
+z_index = 1

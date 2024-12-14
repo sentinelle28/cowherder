@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvwxlhvpfwvop"]
+
+[ext_resource type="Script" path="res://component/shoprelated/stall/stall.gd" id="1_j5eyn"]
+[ext_resource type="Texture2D" uid="uid://dl8qf7lpm8luj" path="res://asset/Sprout Lands - Sprites - Basic pack/Sprout Lands - Sprites - Basic pack/Objects/Basic_Furniture.png" id="1_ths8e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a2l6d"]
+size = Vector2(48, 35)
+
+[node name="stall" type="Node2D"]
+script = ExtResource("1_j5eyn")
+
+[node name="detection_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+position = Vector2(0, -6.5)
+shape = SubResource("RectangleShape2D_a2l6d")
+
+[node name="stock" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.84615, 1.84615)
+texture = ExtResource("1_ths8e")
+hframes = 9
+vframes = 7
+frame = 55
+
+[node name="Label" type="Label" parent="."]
+offset_left = -24.0
+offset_top = -64.0
+offset_right = 24.0
+offset_bottom = -36.0
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]

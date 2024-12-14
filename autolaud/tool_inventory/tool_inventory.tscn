@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bcwwu7qnm8rww"]
+[gd_scene load_steps=10 format=3 uid="uid://bcwwu7qnm8rww"]
 
 [ext_resource type="Script" path="res://autolaud/tool_inventory/tool_inventory.gd" id="1_3tht5"]
 [ext_resource type="Texture2D" uid="uid://bl34t2f78bmvi" path="res://asset/ui/Menu Buttons/Icons/Arrow4.png" id="2_ailgr"]
@@ -8,10 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://cm6vd8icyojnp" path="res://asset/ui/Menu Buttons/Icons/Exclamation.png" id="4_bfowd"]
 [ext_resource type="Texture2D" uid="uid://cw1x5iubcpqkr" path="res://asset/ui/Menu Buttons/Icons/Star1.png" id="5_fj4ou"]
 [ext_resource type="Texture2D" uid="uid://822eqqyvy4ul" path="res://asset/ui/Menu Buttons/Icons/Email.png" id="6_wx77x"]
+[ext_resource type="Texture2D" uid="uid://w588lu6otyop" path="res://asset/ui/Menu Buttons/Icons/Shopping-cart.png" id="6_y8kyu"]
 
 [node name="Tool_inventory" type="CanvasLayer"]
 script = ExtResource("1_3tht5")
-texture_array = Array[Texture2D]([ExtResource("2_g0bcl"), ExtResource("3_b1esb"), ExtResource("4_bfowd"), ExtResource("5_fj4ou")])
+texture_array = Array[Texture2D]([ExtResource("2_g0bcl"), ExtResource("3_b1esb"), ExtResource("4_bfowd"), ExtResource("5_fj4ou"), ExtResource("6_y8kyu")])
 
 [node name="HBoxContainer" type="Control" parent="."]
 layout_mode = 3

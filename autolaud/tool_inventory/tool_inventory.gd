@@ -24,7 +24,6 @@ func _change_tool(value:int)->void:
 		current_tool = max_tool - 1
 	elif current_tool > max_tool - 1:
 		current_tool = 0
-	print(current_tool)
 	_update_tool_texture()
 
 func get_current_tool()->int:
