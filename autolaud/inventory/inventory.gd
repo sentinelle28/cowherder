@@ -85,3 +85,9 @@ func can_buy(price:int)->bool:
 
 func _buy(price:int)->void:
 	player_money -= price
+
+func get_variety_number()->int:
+	return len(MilkName)
+
+func get_milk_with_index(index:int)->String:
+	return MilkName[index]

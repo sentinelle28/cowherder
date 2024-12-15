@@ -22,6 +22,7 @@ Daycycle="*res://autolaud/daycyle/daycycle.tscn"
 Inventory="*res://autolaud/inventory/inventory.gd"
 ToolInventory="*res://autolaud/tool_inventory/tool_inventory.tscn"
 Handbook="*res://autolaud/handbook/handbook.tscn"
+SellInventory="*res://autolaud/shop_related/sell_inventory.tscn"
 
 [display]
 

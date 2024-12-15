@@ -1,7 +1,8 @@
 extends StallBase
 
 func _ready() -> void:
-	$Label.text = str($stock.get_child(0).get_price())
+	if $stock.get_child_count() > 0:
+		$Label.text = str($stock.get_child(0).get_price())
 
 func _interaction_with_player()->void:
 	if player != null and has_stock():

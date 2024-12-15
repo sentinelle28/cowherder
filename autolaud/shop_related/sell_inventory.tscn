@@ -1,0 +1,113 @@
+[gd_scene load_steps=7 format=3 uid="uid://4ho2njmsbnt7"]
+
+[ext_resource type="Texture2D" uid="uid://6dni6ljuoxa1" path="res://asset/milk/milk_background.png" id="1_5ev4l"]
+[ext_resource type="Script" path="res://autolaud/shop_related/sell_inventory.gd" id="1_nfc8l"]
+[ext_resource type="Texture2D" uid="uid://bwdifoc5l0quk" path="res://asset/milk/milk_over.png" id="2_v04fl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xyvcf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_017yn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r8ps6"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="sell_inventory" type="CanvasLayer"]
+process_mode = 2
+visible = false
+script = ExtResource("1_nfc8l")
+milk_under = ExtResource("2_v04fl")
+milk_over = ExtResource("1_5ev4l")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -260.0
+offset_right = 192.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="sell_button" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -17.5
+offset_right = 17.5
+offset_bottom = 31.0
+grow_horizontal = 2
+text = "Sell"
+
+[node name="Panel" type="Panel" parent="Panel"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 16.0
+offset_right = 120.0
+offset_bottom = 56.0
+
+[node name="Milk_in" type="Label" parent="Panel/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+horizontal_alignment = 1
+
+[node name="background" type="ItemList" parent="Panel"]
+process_mode = 4
+show_behind_parent = true
+z_index = -1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.0
+offset_top = -154.0
+offset_right = 168.0
+offset_bottom = 206.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xyvcf")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_017yn")
+allow_search = false
+item_count = 1
+icon_scale = 2.0
+item_0/icon = ExtResource("2_v04fl")
+item_0/selectable = false
+
+[node name="actual_item_list" type="ItemList" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.0
+offset_top = -154.0
+offset_right = 168.0
+offset_bottom = 206.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_r8ps6")
+item_count = 1
+icon_scale = 2.0
+item_0/text = "Common milk"
+item_0/icon = ExtResource("1_5ev4l")
+
+[connection signal="pressed" from="Panel/sell_button" to="." method="_on_sell_button_pressed"]
+[connection signal="item_clicked" from="Panel/actual_item_list" to="." method="_on_actual_item_list_item_clicked"]

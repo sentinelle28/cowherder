@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 var current_tool:int = 0
+signal change_tool
 @onready var max_tool:int = len(texture_array)
 @export var texture_array:Array[Texture2D] = []
 func _ready() -> void:
@@ -19,6 +20,7 @@ func _input_change_tool()->void:
 		_change_tool(-1)
 		
 func _change_tool(value:int)->void:
+	emit_signal("change_tool")
 	current_tool += value
 	if current_tool < 0:
 		current_tool = max_tool - 1
