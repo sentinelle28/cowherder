@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://4ho2njmsbnt7"]
+[gd_scene load_steps=9 format=3 uid="uid://4ho2njmsbnt7"]
 
 [ext_resource type="Texture2D" uid="uid://6dni6ljuoxa1" path="res://asset/milk/milk_background.png" id="1_5ev4l"]
 [ext_resource type="Script" path="res://autolaud/shop_related/sell_inventory.gd" id="1_nfc8l"]
 [ext_resource type="Texture2D" uid="uid://bwdifoc5l0quk" path="res://asset/milk/milk_over.png" id="2_v04fl"]
+[ext_resource type="Theme" uid="uid://c07dob5nypfph" path="res://asset/handbook/handbook.tres" id="4_gu8br"]
+[ext_resource type="Texture2D" uid="uid://dinr15nvrpjg8" path="res://asset/ui/Menu Buttons/Icons/v.png" id="5_87xoh"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xyvcf"]
 
@@ -11,12 +13,13 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r8ps6"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[node name="sell_inventory" type="CanvasLayer"]
+[node name="sell_inventory" type="CanvasLayer" node_paths=PackedStringArray("label")]
 process_mode = 2
 visible = false
 script = ExtResource("1_nfc8l")
 milk_under = ExtResource("2_v04fl")
 milk_over = ExtResource("1_5ev4l")
+label = NodePath("Panel/Control/Panel/Milk_in")
 
 [node name="Panel" type="Panel" parent="."]
 anchors_preset = 8
@@ -31,40 +34,7 @@ offset_bottom = 192.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-
-[node name="sell_button" type="Button" parent="Panel"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -17.5
-offset_right = 17.5
-offset_bottom = 31.0
-grow_horizontal = 2
-text = "Sell"
-
-[node name="Panel" type="Panel" parent="Panel"]
-layout_mode = 0
-offset_left = 32.0
-offset_top = 16.0
-offset_right = 120.0
-offset_bottom = 56.0
-
-[node name="Milk_in" type="Label" parent="Panel/Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "0"
-horizontal_alignment = 1
+theme = ExtResource("4_gu8br")
 
 [node name="background" type="ItemList" parent="Panel"]
 process_mode = 4
@@ -109,5 +79,56 @@ icon_scale = 2.0
 item_0/text = "Common milk"
 item_0/icon = ExtResource("1_5ev4l")
 
-[connection signal="pressed" from="Panel/sell_button" to="." method="_on_sell_button_pressed"]
+[node name="Control" type="Control" parent="Panel"]
+anchors_preset = 0
+offset_left = 24.0
+offset_top = 8.0
+offset_right = 368.0
+offset_bottom = 64.0
+
+[node name="sell_button" type="Button" parent="Panel/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -128.0
+offset_top = 8.0
+offset_right = -46.0
+offset_bottom = 48.0
+grow_horizontal = 0
+text = "Sell"
+icon = ExtResource("5_87xoh")
+flat = true
+
+[node name="Panel" type="Panel" parent="Panel/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = -20.0
+offset_right = 44.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Milk_in" type="Label" parent="Panel/Control/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+horizontal_alignment = 1
+
 [connection signal="item_clicked" from="Panel/actual_item_list" to="." method="_on_actual_item_list_item_clicked"]
+[connection signal="pressed" from="Panel/Control/sell_button" to="." method="_on_sell_button_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://rjfqx5hgfhm8"]
+[gd_scene load_steps=8 format=3 uid="uid://rjfqx5hgfhm8"]
 
 [ext_resource type="Script" path="res://autolaud/handbook/handbook.gd" id="1_1dmga"]
 [ext_resource type="Texture2D" uid="uid://bb15env6xjvf8" path="res://asset/ui/Menu Buttons/Icons/Arrow2.png" id="2_jcvsq"]
@@ -6,12 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://dwa0552n0djiy" path="res://asset/ui/Menu Buttons/Icons/Arrow.png" id="3_1cpkv"]
 [ext_resource type="LabelSettings" uid="uid://c1hf54av562hi" path="res://autolaud/handbook/title_label_setting.tres" id="3_upe3m"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_t50ay"]
+font_size = 20
+
 [sub_resource type="LabelSettings" id="LabelSettings_4n26a"]
 font_size = 25
 
 [node name="Handbook" type="CanvasLayer"]
 process_mode = 2
-visible = false
 script = ExtResource("1_1dmga")
 
 [node name="page_stocker" type="Control" parent="."]
@@ -25,6 +27,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="first_page" type="Panel" parent="page_stocker"]
+visible = false
 layout_mode = 1
 offset_left = -256.0
 offset_top = -260.0
@@ -78,12 +81,12 @@ text = "Summary:"
 
 [node name="first_content" type="Label" parent="page_stocker/first_page/Control/VBoxContainer"]
 layout_mode = 2
-text = "- Movement ( p1 )"
+text = "- Control ( p1 )"
 horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="page_stocker/first_page/Control/VBoxContainer"]
 layout_mode = 2
-text = "- call cow guide ( p2 )"
+text = "- cow ( p2 )"
 horizontal_alignment = 1
 
 [node name="second_page" type="Panel" parent="page_stocker"]
@@ -118,8 +121,48 @@ offset_left = -20.0
 offset_right = 20.0
 offset_bottom = 23.0
 grow_horizontal = 2
-text = "Movement guide"
+text = "Control guide"
 label_settings = ExtResource("3_upe3m")
+horizontal_alignment = 1
+
+[node name="Control" type="VBoxContainer" parent="page_stocker/second_page/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -108.0
+offset_right = 128.0
+offset_bottom = 84.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="page_stocker/second_page/Control/Control"]
+layout_mode = 2
+text = "All You need to know about control"
+label_settings = SubResource("LabelSettings_t50ay")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="page_stocker/second_page/Control/Control"]
+layout_mode = 2
+text = "	First, you can move by pressing wasd"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="page_stocker/second_page/Control/Control"]
+layout_mode = 2
+text = "Press E or A to swicht tool"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="page_stocker/second_page/Control/Control"]
+layout_mode = 2
+text = "Press R to use a tool"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="page_stocker/second_page/Control/Control"]
+layout_mode = 2
+text = "If you are stuck in a menu press escape"
 horizontal_alignment = 1
 
 [node name="third_page" type="Panel" parent="page_stocker"]
@@ -146,6 +189,131 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="page_stocker/third_page/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "All You need to know about cow"
+label_settings = ExtResource("3_upe3m")
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="page_stocker/third_page/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -108.0
+offset_right = 192.0
+offset_bottom = 148.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="page_stocker/third_page/Control/VBoxContainer"]
+layout_mode = 2
+text = "	Cows have two important stats:"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="page_stocker/third_page/Control/VBoxContainer"]
+layout_mode = 2
+text = "Happiness and Feedness"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="page_stocker/third_page/Control/VBoxContainer"]
+layout_mode = 2
+text = "Cows gain naturaly feedness if there are in a scatter mode"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="page_stocker/third_page/Control/VBoxContainer"]
+layout_mode = 2
+text = "For happiness it is a bit more difficult"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="page_stocker/third_page/Control/VBoxContainer"]
+layout_mode = 2
+text = "How cows gain happiness"
+horizontal_alignment = 1
+
+[node name="Label7" type="Label" parent="page_stocker/third_page/Control/VBoxContainer"]
+layout_mode = 2
+text = "- they gained happiness if they are in scatter mode"
+horizontal_alignment = 1
+
+[node name="Label8" type="Label" parent="page_stocker/third_page/Control/VBoxContainer"]
+layout_mode = 2
+text = "- but if you stay too long in the same area, they start losing "
+horizontal_alignment = 1
+
+[node name="Label9" type="Label" parent="page_stocker/third_page/Control/VBoxContainer"]
+layout_mode = 2
+text = "happiness"
+horizontal_alignment = 1
+
+[node name="4_page" type="Panel" parent="page_stocker"]
+layout_mode = 1
+offset_left = -256.0
+offset_top = -260.0
+offset_right = 256.0
+offset_bottom = 259.0
+theme = ExtResource("2_v1vrg")
+
+[node name="Control" type="Control" parent="page_stocker/4_page"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -195.5
+offset_right = 192.0
+offset_bottom = 148.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="page_stocker/4_page/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Call Cow tool"
+label_settings = ExtResource("3_upe3m")
+horizontal_alignment = 1
+
+[node name="5_page" type="Panel" parent="page_stocker"]
+visible = false
+layout_mode = 1
+offset_left = -256.0
+offset_top = -260.0
+offset_right = 256.0
+offset_bottom = 259.0
+theme = ExtResource("2_v1vrg")
+
+[node name="Control" type="Control" parent="page_stocker/5_page"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -195.5
+offset_right = 192.0
+offset_bottom = 148.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="page_stocker/5_page/Control"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5

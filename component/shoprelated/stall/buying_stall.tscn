@@ -5,6 +5,7 @@
 
 [node name="buying_stall" instance=ExtResource("1_uxq7c")]
 script = ExtResource("2_xwoey")
+is_permanent = false
 
 [node name="stock" parent="." index="1"]
 z_index = 1

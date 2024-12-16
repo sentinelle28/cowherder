@@ -7,7 +7,9 @@ const InGameToRealHour:float = (2*PI)/24
 @export var night_threshold:float = 0.4
 @onready var true_time_speed:float= 1/TimeSpeed
 
+signal dawn
 
+var is_current_night
 var current_day:int = 0
 var time:float = 0
 
@@ -29,6 +31,15 @@ func _process(delta: float) -> void:
 		time += delta * InGameToRealHour * true_time_speed
 		var value:float = _caculate_time()
 		color = gradient.gradient.sample(value)
+		_aux_dawn()
+
+func _aux_dawn()->void:
+	if is_night():
+		is_current_night = true
+			
+	if is_current_night and not is_night():
+		is_current_night = false
+		_detect_dawn()
 
 func _stop()->void:
 	color = gradient.gradient.sample(1)
@@ -36,3 +47,6 @@ func _stop()->void:
 	
 func _start()->void:
 	can_start = true
+
+func _detect_dawn()->void:
+	emit_signal("dawn")

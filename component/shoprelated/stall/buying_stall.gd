@@ -1,8 +1,22 @@
 extends StallBase
 
+@export var is_permanent:bool = false
+var list_of_good:Array[Food] = []
+
 func _ready() -> void:
+	Daycycle.connect("dawn",_restock)
 	if $stock.get_child_count() > 0:
 		$Label.text = str($stock.get_child(0).get_price())
+	
+	if is_permanent:
+		_init_permanance()
+	else:
+		_restock()
+
+func _init_permanance()->void:
+	for goods:Food in $stock.get_children():
+		list_of_good.append(goods.duplicate())
+
 
 func _interaction_with_player()->void:
 	if player != null and has_stock():
@@ -13,3 +27,28 @@ func _interaction_with_player()->void:
 
 func has_stock()->bool:
 	return $stock.get_child_count() > 0
+
+func _restock()->void:
+	if is_permanent:
+		_restock_permanent()
+	else:
+		_restock_tempory()
+	
+func _restock_permanent()->void:
+	_void_stock()
+	
+	for good:Food in list_of_good:
+		$stock.add_child(good.duplicate())
+	
+func _restock_tempory()->void:
+	_void_stock()
+	for i:int in range(randi_range(3,7)):
+		var new_child:Food = ShopOffer.get_new_good().duplicate()
+		$stock.add_child(new_child)
+		new_child.position = Vector2.ZERO
+		
+
+func _void_stock()->void:
+	if $stock.get_child_count() != 0:
+		for child:Food in $stock.get_children():
+			$stock.remove_child(child)

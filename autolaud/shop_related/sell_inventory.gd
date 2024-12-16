@@ -2,6 +2,7 @@ extends CanvasLayer
 
 @export var milk_under:Texture2D
 @export var milk_over:Texture2D
+@export var label:Label
 
 var last_cliked_item:int = 0
 var list_of_milk:Array[String] = ["Common"]
@@ -51,4 +52,4 @@ func _on_sell_button_pressed() -> void:
 	_update_milk_counter()
 
 func _update_milk_counter()->void:
-	$Panel/Panel/Milk_in.text = str(Inventory.get_amount_of_milk(list_of_milk[last_cliked_item]))
+	label.text = str(Inventory.get_amount_of_milk(list_of_milk[last_cliked_item]))
