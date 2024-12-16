@@ -23,7 +23,7 @@ func _add_new_milk(milk_name:String)->void:
 	list_of_milk.append(milk_name)
 	$Panel/background.add_item("",milk_under,false)
 	$Panel/actual_item_list.add_item(milk_name + " milk",milk_over)
-	$Panel/background.set_item_custom_bg_color(len(list_of_milk) - 1,Inventory.get_milk_color(milk_name))
+	$Panel/background.set_item_custom_fg_color(len(list_of_milk) - 1,Inventory.get_milk_color(milk_name))
 	
 func _update()->void:
 	if Inventory.get_variety_number() != len(list_of_milk):
