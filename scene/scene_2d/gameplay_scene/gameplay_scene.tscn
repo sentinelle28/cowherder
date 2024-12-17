@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://bmv66ut0rpnx3"]
+[gd_scene load_steps=11 format=4 uid="uid://bmv66ut0rpnx3"]
 
 [ext_resource type="PackedScene" uid="uid://cy6jvq7y8855g" path="res://component/caracter/player/player.tscn" id="1_a816y"]
 [ext_resource type="PackedScene" uid="uid://ioq4uy6d3cp4" path="res://component/map_related/grass_layer.tscn" id="1_k8eir"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cltooyrfuxtej" path="res://component/map_related/house_wall.tscn" id="5_idij4"]
 [ext_resource type="PackedScene" uid="uid://dne0s8br054iq" path="res://component/cow_related/waypoint.tscn" id="5_vb5oo"]
 [ext_resource type="PackedScene" uid="uid://b06rnwgr66210" path="res://component/map_related/plant_layer.tscn" id="7_pytx7"]
+[ext_resource type="PackedScene" uid="uid://dembtktj4ygjt" path="res://component/shoprelated/librarie/egg_stall.tscn" id="10_5x6nk"]
 
 [node name="gameplay_scene" type="Node2D"]
 
@@ -42,3 +43,6 @@ position = Vector2(288, 544)
 [node name="waypoint" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_vb5oo")]
 position = Vector2(32, 384)
 player = NodePath("../player")
+
+[node name="buying_stall" parent="." instance=ExtResource("10_5x6nk")]
+position = Vector2(512, 456)

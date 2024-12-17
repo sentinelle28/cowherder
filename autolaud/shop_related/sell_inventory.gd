@@ -8,9 +8,7 @@ var last_cliked_item:int = 0
 var list_of_milk:Array[String] = ["Common"]
 
 
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("escape"):
-		_quit()
+
 
 
 func _on_actual_item_list_item_clicked(index: int, _at_position: Vector2, _mouse_button_index: int) -> void:

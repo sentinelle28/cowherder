@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dembtktj4ygjt"]
+
+[ext_resource type="PackedScene" uid="uid://bx73ctemcsgl3" path="res://component/shoprelated/stall/buying_stall.tscn" id="1_wwglv"]
+[ext_resource type="PackedScene" uid="uid://3ell5gc7c5af" path="res://component/shoprelated/librarie/egg.tscn" id="2_u354d"]
+
+[node name="buying_stall" instance=ExtResource("1_wwglv")]
+is_permanent = true
+
+[node name="egg" parent="stock" index="0" instance=ExtResource("2_u354d")]
+
+[node name="egg2" parent="stock" index="1" instance=ExtResource("2_u354d")]
+
+[node name="egg3" parent="stock" index="2" instance=ExtResource("2_u354d")]
+
+[node name="egg4" parent="stock" index="3" instance=ExtResource("2_u354d")]

@@ -9,3 +9,7 @@ is_permanent = false
 
 [node name="stock" parent="." index="1"]
 z_index = 1
+
+[node name="Label" parent="." index="3"]
+visible = false
+text = "Buy"

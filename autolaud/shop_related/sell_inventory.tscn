@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://4ho2njmsbnt7"]
+[gd_scene load_steps=10 format=3 uid="uid://4ho2njmsbnt7"]
 
 [ext_resource type="Texture2D" uid="uid://6dni6ljuoxa1" path="res://asset/milk/milk_background.png" id="1_5ev4l"]
 [ext_resource type="Script" path="res://autolaud/shop_related/sell_inventory.gd" id="1_nfc8l"]
 [ext_resource type="Texture2D" uid="uid://bwdifoc5l0quk" path="res://asset/milk/milk_over.png" id="2_v04fl"]
 [ext_resource type="Theme" uid="uid://c07dob5nypfph" path="res://asset/handbook/handbook.tres" id="4_gu8br"]
 [ext_resource type="Texture2D" uid="uid://dinr15nvrpjg8" path="res://asset/ui/Menu Buttons/Icons/v.png" id="5_87xoh"]
+[ext_resource type="Theme" uid="uid://bkgbmcw5ocw8w" path="res://asset/handbook/button_theme.tres" id="5_oqohd"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xyvcf"]
 
@@ -96,9 +97,9 @@ offset_top = 8.0
 offset_right = -46.0
 offset_bottom = 48.0
 grow_horizontal = 0
-text = "Sell"
+theme = ExtResource("5_oqohd")
 icon = ExtResource("5_87xoh")
-flat = true
+icon_alignment = 1
 
 [node name="Panel" type="Panel" parent="Panel/Control"]
 layout_mode = 1

@@ -4,7 +4,14 @@ class_name StallBase
 
 var player:Player
 
+func _ready() -> void:
+	ToolInventory.connect("change_tool",_change_mode)
 
+func _change_mode()->void:
+	if ToolInventory.get_current_tool() == 0:
+		$Label.visible = true
+	else:
+		$Label.visible = false
 
 func _on_detection_area_body_entered(body: Node2D) -> void:
 	if body is Player:

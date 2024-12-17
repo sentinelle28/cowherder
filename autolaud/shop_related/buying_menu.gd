@@ -8,6 +8,7 @@ func _open_menu(buying_stall:BuyingStall)->void:
 	Daycycle._stop()
 	_set_item_list(buying_stall)
 	current_open_buying_stall = buying_stall
+	$Panel/Control/Panel/money_label.text = str(Inventory.player_money)
 
 func _quit()->void:
 	hide()
@@ -27,10 +28,13 @@ func _clear_item()->void:
 	$Panel/ItemList.clear()
 
 
+
 func _on_buy_button_pressed() -> void:
-	if current_open_buying_stall.can_buy(current_index):
-		current_open_buying_stall._add_object_to_player(current_index)
-		_set_item_list(current_open_buying_stall)
+	if current_index != null:
+		if current_open_buying_stall.can_buy(current_index):
+			current_open_buying_stall._add_object_to_player(current_index)
+			_set_item_list(current_open_buying_stall)
+			$Panel/Control/Panel/money_label.text = str(Inventory.player_money)
 
 
 func _on_item_list_item_selected(index: int) -> void:

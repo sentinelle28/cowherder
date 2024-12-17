@@ -14,6 +14,7 @@ font_size = 25
 
 [node name="Handbook" type="CanvasLayer"]
 process_mode = 2
+visible = false
 script = ExtResource("1_1dmga")
 
 [node name="page_stocker" type="Control" parent="."]

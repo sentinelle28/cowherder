@@ -5,9 +5,8 @@ class_name BuyingStall
 var list_of_good:Array[Food] = []
 
 func _ready() -> void:
+	ToolInventory.connect("change_tool",_change_mode)
 	Daycycle.connect("dawn",_restock)
-	if $stock.get_child_count() > 0:
-		$Label.text = str($stock.get_child(0).get_price())
 	
 	if is_permanent:
 		_init_permanance()
@@ -21,7 +20,7 @@ func _init_permanance()->void:
 
 func _interaction_with_player()->void:
 	if player != null and has_stock():
-		BuyingMenu._open_menu(self,player)
+		BuyingMenu._open_menu(self)
 		
 		
 

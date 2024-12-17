@@ -40,9 +40,7 @@ func _on_submitbutton_pressed() -> void:
 		submitbutton.hide()
 		namelabel.show()
 
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("escape") and visible:
-		_quit()
+
 		
 func _quit()->void:
 	hide()
