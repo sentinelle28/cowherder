@@ -13,3 +13,6 @@ func get_food_name()->String:
 
 func get_price()->int:
 	return price
+
+func get_Ctexture()->Texture2D:
+	return texture.duplicate()

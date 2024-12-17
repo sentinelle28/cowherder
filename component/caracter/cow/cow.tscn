@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://dwkfdyvriv0g7"]
+[gd_scene load_steps=15 format=3 uid="uid://dwkfdyvriv0g7"]
 
 [ext_resource type="Texture2D" uid="uid://demptygyxv6m3" path="res://asset/Sprout Lands - Sprites - Basic pack/Sprout Lands - Sprites - Basic pack/Characters/Free Cow Sprites.png" id="1_8mrtn"]
 [ext_resource type="Script" path="res://component/caracter/cow/cow.gd" id="1_urlpq"]
+[ext_resource type="PackedScene" uid="uid://bo6clyswd8vhl" path="res://component/label_prefab/label_prefab.tscn" id="2_jcdaa"]
 [ext_resource type="PackedScene" uid="uid://u285fvgoscv1" path="res://component/shoprelated/librarie/default.tscn" id="3_rbds4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7unhj"]
@@ -192,6 +193,7 @@ _data = {
 [node name="cow" type="CharacterBody2D" node_paths=PackedStringArray("last_food")]
 collision_mask = 2
 script = ExtResource("1_urlpq")
+label_prefab = ExtResource("2_jcdaa")
 last_food = NodePath("default")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

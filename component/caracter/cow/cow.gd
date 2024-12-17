@@ -9,6 +9,7 @@ class_name Cow
 @export var amount_of_milk_created:int = 3
 @export var time_to_produce_milk:float = 10
 @export var milk_name:String = "Common" 
+@export var label_prefab:PackedScene
 
 @export_group("evolution")
 @export var last_food:Food
@@ -97,7 +98,8 @@ func _on_milk_timer_timeout() -> void:
 		amount_of_milk_created += randi_range(2,10)
 		amount_of_milk_created = clampi(amount_of_milk_created,0,100)
 		if amount_of_milk_created == 100:
-			amount_of_milk_created = 0
+			_spawn_label("+ Milk",Inventory.get_milk_color(milk_name))
+			amount_of_milk_created -= 100
 			Inventory._add_milk(milk_name)
 
 
@@ -111,9 +113,11 @@ func get_amount_of_milk()->int:
 
 func _gain_happiness()->void:
 	curent_happiness += randi_range(0,3)
+	_spawn_label("+ Happy",Color.YELLOW)
 	
 func _lose_happiness()->void:
 	curent_happiness += randi_range(-4,-1)
+	_spawn_label("- Happy",Color.RED)
 
 func _add_new_affix(affix:Food)->void:
 	_update_name(affix)
@@ -146,3 +150,9 @@ func get_value_in_range()->int:
 		
 func get_random_color()->Color:
 	return Color(get_value_in_range(),get_value_in_range(),get_value_in_range())
+
+
+func _spawn_label(text:String,color:Color)->void:
+	var new_label:LabelPrefab = label_prefab.instantiate()
+	new_label._set_text(text)
+	new_label._set_color(color)

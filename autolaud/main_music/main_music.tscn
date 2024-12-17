@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnqfiq46l3dly"]
+
+[ext_resource type="AudioStream" uid="uid://bqd2qban64m1b" path="res://asset/audio/Indigo Future Melody.wav" id="1_xscax"]
+[ext_resource type="Script" path="res://autolaud/main_music/main_music.gd" id="2_ts12x"]
+
+[node name="Main_music" type="AudioStreamPlayer"]
+stream = ExtResource("1_xscax")
+script = ExtResource("2_ts12x")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="finished" from="." to="." method="_on_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

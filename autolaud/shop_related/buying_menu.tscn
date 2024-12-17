@@ -1,0 +1,148 @@
+[gd_scene load_steps=5 format=3 uid="uid://cy7fgvsbhimd8"]
+
+[ext_resource type="Script" path="res://autolaud/shop_related/buying_menu.gd" id="1_m4ld1"]
+[ext_resource type="Theme" uid="uid://c07dob5nypfph" path="res://asset/handbook/handbook.tres" id="2_ahu5e"]
+[ext_resource type="Texture2D" uid="uid://bfqe3dc47vm5m" path="res://asset/ui/Menu Buttons/Icons/Arrow3.png" id="3_kougc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xj543"]
+
+[node name="Buying_menu" type="CanvasLayer"]
+process_mode = 2
+script = ExtResource("1_m4ld1")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -260.0
+offset_right = 256.0
+offset_bottom = 260.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_ahu5e")
+
+[node name="Control" type="Control" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -216.0
+offset_top = 24.0
+offset_right = 224.0
+offset_bottom = 104.0
+grow_horizontal = 2
+
+[node name="Panel" type="Panel" parent="Panel/Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 64.0
+offset_bottom = 20.0
+grow_vertical = 2
+
+[node name="money_label" type="Label" parent="Panel/Control/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "ddd"
+horizontal_alignment = 1
+
+[node name="exchange" type="Panel" parent="Panel/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -20.0
+offset_right = 4.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="money_requiere" type="Label" parent="Panel/Control/exchange"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "000"
+horizontal_alignment = 1
+
+[node name="exchange2" type="Panel" parent="Panel/Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = -20.0
+offset_right = -76.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="item_texture" type="Sprite2D" parent="Panel/Control/exchange2"]
+position = Vector2(32, 20)
+
+[node name="exchange_arrow" type="Sprite2D" parent="Panel/Control"]
+position = Vector2(260, 40)
+scale = Vector2(2, 1)
+texture = ExtResource("3_kougc")
+
+[node name="Buy_button" type="Button" parent="Panel/Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -16.0
+offset_right = 1.0
+offset_bottom = 16.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "Buy"
+flat = true
+
+[node name="ItemList" type="ItemList" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -132.0
+offset_right = 192.0
+offset_bottom = 196.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_xj543")
+
+[connection signal="pressed" from="Panel/Control/Buy_button" to="." method="_on_buy_button_pressed"]
+[connection signal="item_selected" from="Panel/ItemList" to="." method="_on_item_list_item_selected"]
