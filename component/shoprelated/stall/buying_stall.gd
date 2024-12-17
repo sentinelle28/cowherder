@@ -21,12 +21,9 @@ func _init_permanance()->void:
 
 func _interaction_with_player()->void:
 	if player != null and has_stock():
-		BuyingMenu._open_menu(self)
+		BuyingMenu._open_menu(self,player)
 		
-		"""
-		if Inventory.can_buy($stock.get_child(0).get_price()) and player.can_carry():
-			Inventory._buy($stock.get_child(0).get_price())
-			player._add_carriable_object($stock.get_child(0))"""
+		
 
 
 func has_stock()->bool:
@@ -68,3 +65,11 @@ func get_food(index:int)->Food:
 
 func get_good()->Array[Node]:
 	return $stock.get_children()
+
+func _add_object_to_player(index:int)->void:
+	if can_buy(index):
+		Inventory._buy($stock.get_child(index).get_price())
+		player._add_carriable_object($stock.get_child(index))
+
+func can_buy(index:int)->bool:
+	return Inventory.can_buy($stock.get_child(index).get_price()) and player.can_carry()
