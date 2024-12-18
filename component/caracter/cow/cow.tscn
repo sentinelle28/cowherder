@@ -211,7 +211,6 @@ frame = 1
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 target_desired_distance = 40.0
-debug_enabled = true
 
 [node name="wait_timer" type="Timer" parent="."]
 one_shot = true
