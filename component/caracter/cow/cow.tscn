@@ -1,9 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://dwkfdyvriv0g7"]
+[gd_scene load_steps=18 format=3 uid="uid://dwkfdyvriv0g7"]
 
 [ext_resource type="Texture2D" uid="uid://demptygyxv6m3" path="res://asset/Sprout Lands - Sprites - Basic pack/Sprout Lands - Sprites - Basic pack/Characters/Free Cow Sprites.png" id="1_8mrtn"]
 [ext_resource type="Script" path="res://component/caracter/cow/cow.gd" id="1_urlpq"]
 [ext_resource type="PackedScene" uid="uid://bo6clyswd8vhl" path="res://component/label_prefab/label_prefab.tscn" id="2_jcdaa"]
 [ext_resource type="PackedScene" uid="uid://u285fvgoscv1" path="res://component/shoprelated/librarie/default.tscn" id="3_rbds4"]
+[ext_resource type="AudioStream" uid="uid://c1rproh6veotd" path="res://asset/audio/cow_unhappy.tres" id="5_wr3na"]
+[ext_resource type="AudioStream" uid="uid://bahrlp645e0vb" path="res://asset/audio/cow_suprised.tres" id="6_35epk"]
+[ext_resource type="AudioStream" uid="uid://cpg63sfydoovq" path="res://asset/audio/cow_expression.tres" id="7_jbf4v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7unhj"]
 size = Vector2(32, 13)
@@ -237,6 +240,15 @@ offset_bottom = 7.0
 text = "Z"
 
 [node name="default" parent="." instance=ExtResource("3_rbds4")]
+
+[node name="unhappy" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_wr3na")
+
+[node name="suprised" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_35epk")
+
+[node name="unkown_expression" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_jbf4v")
 
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
 [connection signal="timeout" from="wait_timer" to="." method="_on_timer_timeout"]

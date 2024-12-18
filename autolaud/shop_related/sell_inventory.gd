@@ -48,6 +48,7 @@ func _activate()->void:
 func _on_sell_button_pressed() -> void:
 	_sell()
 	_update_milk_counter()
+	$buy.play()
 
 func _update_milk_counter()->void:
 	label.text = str(Inventory.get_amount_of_milk(list_of_milk[last_cliked_item]))

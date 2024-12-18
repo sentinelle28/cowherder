@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://4ho2njmsbnt7"]
+[gd_scene load_steps=11 format=3 uid="uid://4ho2njmsbnt7"]
 
 [ext_resource type="Texture2D" uid="uid://6dni6ljuoxa1" path="res://asset/milk/milk_background.png" id="1_5ev4l"]
 [ext_resource type="Script" path="res://autolaud/shop_related/sell_inventory.gd" id="1_nfc8l"]
@@ -6,6 +6,7 @@
 [ext_resource type="Theme" uid="uid://c07dob5nypfph" path="res://asset/handbook/handbook.tres" id="4_gu8br"]
 [ext_resource type="Texture2D" uid="uid://dinr15nvrpjg8" path="res://asset/ui/Menu Buttons/Icons/v.png" id="5_87xoh"]
 [ext_resource type="Theme" uid="uid://bkgbmcw5ocw8w" path="res://asset/handbook/button_theme.tres" id="5_oqohd"]
+[ext_resource type="AudioStream" uid="uid://b4ntubbru0hsl" path="res://asset/audio/buy.tres" id="7_57mjl"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xyvcf"]
 
@@ -130,6 +131,9 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "0"
 horizontal_alignment = 1
+
+[node name="buy" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_57mjl")
 
 [connection signal="item_clicked" from="Panel/actual_item_list" to="." method="_on_actual_item_list_item_clicked"]
 [connection signal="pressed" from="Panel/Control/sell_button" to="." method="_on_sell_button_pressed"]

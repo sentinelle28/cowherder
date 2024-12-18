@@ -95,7 +95,7 @@ func _on_milk_timer_timeout() -> void:
 	$milk_timer.start(time_to_produce_milk)
 	if curent_happiness >= 50 and current_feedness >= 30 and not is_sleeping:
 		current_feedness -= 10
-		amount_of_milk_created += randi_range(2,10)
+		amount_of_milk_created += randi_range(4,20)
 		amount_of_milk_created = clampi(amount_of_milk_created,0,100)
 		if amount_of_milk_created == 100:
 			_spawn_label("+ Milk",Inventory.get_milk_color(milk_name))
@@ -114,10 +114,16 @@ func get_amount_of_milk()->int:
 func _gain_happiness()->void:
 	curent_happiness += randi_range(0,3)
 	_spawn_label("+ Happy",Color.YELLOW)
+	if randi_range(1,10) <= 3:
+		$suprised.play()
+	elif randi_range(1,10) <= 3:
+		$unkown_expression.play()
+	
 	
 func _lose_happiness()->void:
 	curent_happiness += randi_range(-4,-1)
 	_spawn_label("- Happy",Color.RED)
+	$unhappy.play()
 
 func _add_new_affix(affix:Food)->void:
 	_update_name(affix)
