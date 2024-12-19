@@ -32,6 +32,10 @@ var MilkName:Array[String] = ["Common"]
 var MilkObject:Array[Milk] = [Milk.new(Color.WHITE,1)]
 var player_money:int = 1000
 
+func _reset()->void:
+	MilkName = ["Common"]
+	MilkObject = [Milk.new(Color.WHITE,1)]
+
 func get_milk(milkname:String)->Milk:
 	if milkname in MilkName:
 		return find_correspondant(milkname)

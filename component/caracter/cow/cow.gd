@@ -15,7 +15,7 @@ class_name Cow
 @export var last_food:Food
 
 var speed:int = 100
-var can_move:bool = false
+var can_move:bool = true
 var is_following_the_player:bool = false
 
 var current_amount_of_milk:int = 0
@@ -26,6 +26,7 @@ var current_feedness:int = 50
 var is_sleeping:bool = false
 
 func _ready() -> void:
+	_chose_new_target()
 	$milk_timer.start(time_to_produce_milk)
 
 
@@ -36,8 +37,8 @@ func _process(_delta: float) -> void:
 
 
 func _move()->void:
-	velocity = Vector2.ZERO
-	$AnimatedSprite2D.play("idle")
+	
+	
 	if can_move and is_following_the_player:
 		_follow_the_player()
 		var direction:Vector2 = global_position.direction_to($NavigationAgent2D.get_next_path_position())
@@ -48,13 +49,17 @@ func _move()->void:
 			var direction:Vector2 = global_position.direction_to($NavigationAgent2D.get_next_path_position())
 			velocity = direction*speed
 			_walk_sprite(direction.x)
-			$AnimationPlayer.play("RESET")
 		else:
 			$AnimationPlayer.play("sleeping")
+			velocity = Vector2.ZERO
+	else:
+		$AnimatedSprite2D.play("idle")
+		velocity = Vector2.ZERO
 	
 
 func _walk_sprite(x_direction:float)->void:
-	$AnimatedSprite2D.play("walk")
+	if $AnimatedSprite2D.animation != "walk":
+		$AnimatedSprite2D.play("walk")
 	$AnimatedSprite2D.flip_h = x_direction < 0
 
 func _follow_the_player()->void:
@@ -78,6 +83,7 @@ func generate_range()->int:
 func _on_navigation_agent_2d_navigation_finished() -> void:
 	if not is_following_the_player:
 		$wait_timer.start(randi_range(2,7))
+		
 		can_move = false
 
 

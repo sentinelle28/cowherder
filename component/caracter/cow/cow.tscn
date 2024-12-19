@@ -205,12 +205,13 @@ shape = SubResource("RectangleShape2D_7unhj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_362ai")
-animation = &"idle"
+animation = &"walk"
 autoplay = "idle"
-frame = 1
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 target_desired_distance = 40.0
+avoidance_layers = 2
+avoidance_mask = 2
 
 [node name="wait_timer" type="Timer" parent="."]
 one_shot = true

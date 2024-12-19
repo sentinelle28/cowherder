@@ -27,6 +27,7 @@ ShopOffer="*res://autolaud/shop_related/Shop_offer.gd"
 MainMusic="*res://autolaud/main_music/main_music.tscn"
 BuyingMenu="*res://autolaud/shop_related/buying_menu.tscn"
 GlobaleEscape="*res://autolaud/global_escape/globale_escape.tscn"
+SceneTransition="*res://autolaud/scene_transition/scene_transition.tscn"
 
 [display]
 

@@ -42,9 +42,10 @@ tile_map_data = PackedByteArray("AAAUABgAAAAAAAEAAAAUABkAAAAAAAIAAAAVABkAAAADAAI
 [node name="cow_manager" parent="." node_paths=PackedStringArray("waypoint") instance=ExtResource("3_6t7lq")]
 waypoint = NodePath("../waypoint")
 
-[node name="cow" parent="cow_manager" instance=ExtResource("3_d3eeh")]
+[node name="cow" parent="cow_manager" node_paths=PackedStringArray("waypoint") instance=ExtResource("3_d3eeh")]
 position = Vector2(288, 544)
+waypoint = NodePath("../../waypoint")
 
 [node name="waypoint" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_vb5oo")]
-position = Vector2(32, 384)
+position = Vector2(536, 488)
 player = NodePath("../player")

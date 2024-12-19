@@ -1,0 +1,94 @@
+[gd_scene load_steps=10 format=3 uid="uid://bodw3gpextj2u"]
+
+[ext_resource type="Script" path="res://autolaud/scene_transition/scene_transition.gd" id="1_oqcp6"]
+[ext_resource type="Texture2D" uid="uid://demptygyxv6m3" path="res://asset/Sprout Lands - Sprites - Basic pack/Sprout Lands - Sprites - Basic pack/Characters/Free Cow Sprites.png" id="1_yis18"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4o8s"]
+atlas = ExtResource("1_yis18")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xvpaf"]
+atlas = ExtResource("1_yis18")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8srl"]
+atlas = ExtResource("1_yis18")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g5vb3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4o8s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xvpaf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l8srl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_pmqpx"]
+resource_name = "scene_transition"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(200, 368), Vector2(968, 368)]
+}
+
+[sub_resource type="Animation" id="Animation_tbaky"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(200, 368)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7plmy"]
+_data = {
+"RESET": SubResource("Animation_tbaky"),
+"scene_transition": SubResource("Animation_pmqpx")
+}
+
+[node name="Scene_transition" type="CanvasLayer"]
+visible = false
+script = ExtResource("1_oqcp6")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.504468, 0.603874, 1.92523e-07, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(200, 368)
+scale = Vector2(3.75, 3.75)
+sprite_frames = SubResource("SpriteFrames_g5vb3")
+autoplay = "default"
+frame_progress = 0.396302
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7plmy")
+}
