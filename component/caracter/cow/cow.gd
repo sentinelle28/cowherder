@@ -37,7 +37,8 @@ func _process(_delta: float) -> void:
 
 
 func _move()->void:
-	
+	if $AnimationPlayer.is_playing() and not is_sleeping:
+		$AnimationPlayer.play("RESET")
 	
 	if can_move and is_following_the_player:
 		_follow_the_player()

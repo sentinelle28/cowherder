@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://bmv66ut0rpnx3"]
+[gd_scene load_steps=13 format=4 uid="uid://bmv66ut0rpnx3"]
 
 [ext_resource type="PackedScene" uid="uid://cy6jvq7y8855g" path="res://component/caracter/player/player.tscn" id="1_a816y"]
 [ext_resource type="PackedScene" uid="uid://ioq4uy6d3cp4" path="res://component/map_related/grass_layer.tscn" id="1_k8eir"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://cltooyrfuxtej" path="res://component/map_related/house_wall.tscn" id="5_idij4"]
 [ext_resource type="PackedScene" uid="uid://dne0s8br054iq" path="res://component/cow_related/waypoint.tscn" id="5_vb5oo"]
 [ext_resource type="PackedScene" uid="uid://b06rnwgr66210" path="res://component/map_related/plant_layer.tscn" id="7_pytx7"]
+[ext_resource type="PackedScene" uid="uid://c3skeg7a71xas" path="res://component/shoprelated/stall/selling_stall.tscn" id="11_3p4px"]
+[ext_resource type="PackedScene" uid="uid://bm4ih8l5la2x8" path="res://component/shoprelated/librarie/egg_stall.tscn" id="12_xh4w0"]
 
 [node name="gameplay_scene" type="Node2D"]
 
@@ -42,10 +44,54 @@ tile_map_data = PackedByteArray("AAAUABgAAAAAAAEAAAAUABkAAAAAAAIAAAAVABkAAAADAAI
 [node name="cow_manager" parent="." node_paths=PackedStringArray("waypoint") instance=ExtResource("3_6t7lq")]
 waypoint = NodePath("../waypoint")
 
-[node name="cow" parent="cow_manager" node_paths=PackedStringArray("waypoint") instance=ExtResource("3_d3eeh")]
+[node name="Rosa" parent="cow_manager" node_paths=PackedStringArray("waypoint") instance=ExtResource("3_d3eeh")]
+position = Vector2(288, 544)
+waypoint = NodePath("../../waypoint")
+
+[node name="Heg" parent="cow_manager" node_paths=PackedStringArray("waypoint") instance=ExtResource("3_d3eeh")]
+position = Vector2(288, 544)
+waypoint = NodePath("../../waypoint")
+
+[node name="Bob" parent="cow_manager" node_paths=PackedStringArray("waypoint") instance=ExtResource("3_d3eeh")]
+position = Vector2(288, 544)
+waypoint = NodePath("../../waypoint")
+
+[node name="Rayland" parent="cow_manager" node_paths=PackedStringArray("waypoint") instance=ExtResource("3_d3eeh")]
+position = Vector2(288, 544)
+waypoint = NodePath("../../waypoint")
+
+[node name="Nog" parent="cow_manager" node_paths=PackedStringArray("waypoint") instance=ExtResource("3_d3eeh")]
+position = Vector2(288, 544)
+waypoint = NodePath("../../waypoint")
+
+[node name="Miguella" parent="cow_manager" node_paths=PackedStringArray("waypoint") instance=ExtResource("3_d3eeh")]
+position = Vector2(288, 544)
+waypoint = NodePath("../../waypoint")
+
+[node name="Flora" parent="cow_manager" node_paths=PackedStringArray("waypoint") instance=ExtResource("3_d3eeh")]
+position = Vector2(288, 544)
+waypoint = NodePath("../../waypoint")
+
+[node name="Charlotte" parent="cow_manager" node_paths=PackedStringArray("waypoint") instance=ExtResource("3_d3eeh")]
+position = Vector2(288, 544)
+waypoint = NodePath("../../waypoint")
+
+[node name="Someone" parent="cow_manager" node_paths=PackedStringArray("waypoint") instance=ExtResource("3_d3eeh")]
+position = Vector2(288, 544)
+waypoint = NodePath("../../waypoint")
+
+[node name="Looooooooooo" parent="cow_manager" node_paths=PackedStringArray("waypoint") instance=ExtResource("3_d3eeh")]
 position = Vector2(288, 544)
 waypoint = NodePath("../../waypoint")
 
 [node name="waypoint" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_vb5oo")]
 position = Vector2(536, 488)
 player = NodePath("../player")
+
+[node name="stall" type="Node2D" parent="."]
+
+[node name="selling_stall" parent="stall" instance=ExtResource("11_3p4px")]
+position = Vector2(520, 416)
+
+[node name="egg_stall" parent="stall" instance=ExtResource("12_xh4w0")]
+position = Vector2(488, 688)

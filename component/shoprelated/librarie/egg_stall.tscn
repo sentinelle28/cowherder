@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dembtktj4ygjt"]
+[gd_scene load_steps=3 format=3 uid="uid://bm4ih8l5la2x8"]
 
 [ext_resource type="PackedScene" uid="uid://bx73ctemcsgl3" path="res://component/shoprelated/stall/buying_stall.tscn" id="1_wwglv"]
 [ext_resource type="PackedScene" uid="uid://3ell5gc7c5af" path="res://component/shoprelated/librarie/egg.tscn" id="2_u354d"]
@@ -13,3 +13,5 @@ is_permanent = true
 [node name="egg3" parent="stock" index="2" instance=ExtResource("2_u354d")]
 
 [node name="egg4" parent="stock" index="3" instance=ExtResource("2_u354d")]
+
+[node name="egg5" parent="stock" index="4" instance=ExtResource("2_u354d")]

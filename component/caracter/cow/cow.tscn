@@ -243,12 +243,15 @@ text = "Z"
 
 [node name="unhappy" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_wr3na")
+bus = &"sfx"
 
 [node name="suprised" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_35epk")
+bus = &"sfx"
 
 [node name="unkown_expression" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_jbf4v")
+bus = &"sfx"
 
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
 [connection signal="timeout" from="wait_timer" to="." method="_on_timer_timeout"]
