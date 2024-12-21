@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://csuc45hn3my2d"]
+
+[ext_resource type="PackedScene" uid="uid://c3btijymqmr1r" path="res://component/shoprelated/prefab_for_objet/food_template.tscn" id="1_f3gi0"]
+[ext_resource type="Texture2D" uid="uid://cgj61f3kmwv5y" path="res://asset/Sprout Lands - Sprites - Basic pack/Sprout Lands - Sprites - Basic pack/Objects/Basic_tools_and_meterials.png" id="2_c8wg3"]
+
+[node name="watering_can" instance=ExtResource("1_f3gi0")]
+texture = ExtResource("2_c8wg3")
+hframes = 3
+vframes = 2
+food_name = "watering can"
+color = Color(0, 1, 1, 1)
+price = 15

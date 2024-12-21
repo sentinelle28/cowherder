@@ -21,7 +21,7 @@ func _process(_delta: float) -> void:
 
 
 func _move()->void:
-	var direction:Vector2 = Input.get_vector("ui_left","ui_right","ui_up","ui_down")
+	var direction:Vector2 = Input.get_vector("move_left","move_right","move_up","move_down")
 	velocity = direction*speed
 	_change_sprite(direction)
 	

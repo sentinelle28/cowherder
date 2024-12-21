@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8mfetyurgvgt"]
+
+[ext_resource type="PackedScene" uid="uid://bx73ctemcsgl3" path="res://component/shoprelated/stall/buying_stall.tscn" id="1_linv7"]
+[ext_resource type="PackedScene" uid="uid://6kb688vvljen" path="res://component/shoprelated/librarie/chest.tscn" id="2_ojw6b"]
+
+[node name="chest_stall" instance=ExtResource("1_linv7")]
+is_permanent = true
+
+[node name="chest" parent="stock" index="0" instance=ExtResource("2_ojw6b")]
+
+[node name="chest2" parent="stock" index="1" instance=ExtResource("2_ojw6b")]
+
+[node name="chest3" parent="stock" index="2" instance=ExtResource("2_ojw6b")]

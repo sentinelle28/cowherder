@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://b4ntubbru0hsl" path="res://asset/audio/buy.tres" id="3_rt7sj"]
 
 [node name="buying_stall" instance=ExtResource("1_uxq7c")]
+z_index = -1
 script = ExtResource("2_xwoey")
 is_permanent = false
 
