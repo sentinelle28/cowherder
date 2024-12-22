@@ -1,12 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://cr2kkefponuaj"]
 
 [ext_resource type="PackedScene" uid="uid://c3btijymqmr1r" path="res://component/shoprelated/prefab_for_objet/food_template.tscn" id="1_hdjic"]
-[ext_resource type="Texture2D" uid="uid://bejqpn4vr2f84" path="res://asset/Sprout Lands - Sprites - Basic pack/Sprout Lands - Sprites - Basic pack/Objects/Simple_Milk_and_grass_item.png" id="2_v1elg"]
+[ext_resource type="Texture2D" uid="uid://dkvuupjlek36s" path="res://asset/texture_seperated/grass.png" id="2_8hcru"]
 
 [node name="grass" instance=ExtResource("1_hdjic")]
-texture = ExtResource("2_v1elg")
-hframes = 4
-frame = 3
+texture = ExtResource("2_8hcru")
 food_name = "grass"
 color = Color(5.53504e-07, 0.299281, 6.257e-07, 1)
 price = 5

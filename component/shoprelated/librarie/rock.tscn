@@ -1,13 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://bqaxnum6fu7ki"]
 
 [ext_resource type="PackedScene" uid="uid://c3btijymqmr1r" path="res://component/shoprelated/prefab_for_objet/food_template.tscn" id="1_evjsu"]
-[ext_resource type="Texture2D" uid="uid://cgj61f3kmwv5y" path="res://asset/Sprout Lands - Sprites - Basic pack/Sprout Lands - Sprites - Basic pack/Objects/Basic_tools_and_meterials.png" id="2_jxkx0"]
+[ext_resource type="Texture2D" uid="uid://chxbsqjoq4oe4" path="res://asset/texture_seperated/rock.png" id="2_dydev"]
 
 [node name="rock" instance=ExtResource("1_evjsu")]
-texture = ExtResource("2_jxkx0")
-hframes = 3
-vframes = 2
-frame = 3
+texture = ExtResource("2_dydev")
 food_name = "rock"
 color = Color(0.262932, 0.262932, 0.262932, 1)
 price = 5

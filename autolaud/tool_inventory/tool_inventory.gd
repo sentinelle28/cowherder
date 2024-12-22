@@ -20,13 +20,13 @@ func _input_change_tool()->void:
 		_change_tool(-1)
 		
 func _change_tool(value:int)->void:
-	emit_signal("change_tool")
 	current_tool += value
 	if current_tool < 0:
 		current_tool = max_tool - 1
 	elif current_tool > max_tool - 1:
 		current_tool = 0
 	_update_tool_texture()
+	emit_signal("change_tool")
 
 func get_current_tool()->int:
 	return current_tool

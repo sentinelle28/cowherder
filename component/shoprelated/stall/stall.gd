@@ -8,7 +8,7 @@ func _ready() -> void:
 	ToolInventory.connect("change_tool",_change_mode)
 
 func _change_mode()->void:
-	if ToolInventory.get_current_tool() == 0:
+	if ToolInventory.get_current_tool() == 4:
 		$Label.visible = true
 	else:
 		$Label.visible = false

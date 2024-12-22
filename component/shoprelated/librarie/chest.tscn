@@ -1,12 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://6kb688vvljen"]
 
 [ext_resource type="PackedScene" uid="uid://c3btijymqmr1r" path="res://component/shoprelated/prefab_for_objet/food_template.tscn" id="1_xwmce"]
-[ext_resource type="Texture2D" uid="uid://c4qjakffyfil4" path="res://asset/Sprout Lands - Sprites - Basic pack/Sprout Lands - Sprites - Basic pack/Objects/Chest.png" id="2_ol3jl"]
+[ext_resource type="Texture2D" uid="uid://btul57ny26qyd" path="res://asset/texture_seperated/Chest.png" id="2_jgjje"]
 
 [node name="chest" instance=ExtResource("1_xwmce")]
-texture = ExtResource("2_ol3jl")
-hframes = 5
-vframes = 2
+texture = ExtResource("2_jgjje")
 food_name = "chest"
 color = Color(0.526909, 0.21327, 0, 1)
 price = 20
