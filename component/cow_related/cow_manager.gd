@@ -47,3 +47,6 @@ func _on_happiness_timer_timeout() -> void:
 		if child is Cow:
 			child._gain_happiness()
 	$HappinessTimer.start(time_to_gain_happinnes)
+
+func get_mode()->bool:
+	return is_following_the_player

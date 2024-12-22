@@ -120,6 +120,9 @@ func get_amount_of_milk()->int:
 
 func _gain_happiness()->void:
 	curent_happiness += randi_range(0,3)
+	current_feedness += randi_range(-3,9)
+	curent_happiness = clampi(curent_happiness,0,100)
+	current_feedness = clampi(current_feedness,0,100)
 	_spawn_label("+ Happy",Color.YELLOW)
 	if randi_range(1,10) <= 3:
 		$suprised.play()

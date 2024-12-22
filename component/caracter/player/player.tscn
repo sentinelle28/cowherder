@@ -1,7 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://cy6jvq7y8855g"]
+[gd_scene load_steps=24 format=3 uid="uid://cy6jvq7y8855g"]
 
 [ext_resource type="Texture2D" uid="uid://ceiu8bn2xsvmj" path="res://asset/Sprout Lands - Sprites - Basic pack/Sprout Lands - Sprites - Basic pack/Characters/Basic Charakter Spritesheet.png" id="1_qy7xf"]
 [ext_resource type="Script" path="res://component/caracter/player/player.gd" id="1_vc5lp"]
+[ext_resource type="AudioStream" uid="uid://bcailxg7e3wla" path="res://asset/audio/call_cow.wav" id="3_f1mj5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_20mys"]
 atlas = ExtResource("1_qy7xf")
@@ -180,6 +181,9 @@ debug_color = Color(0.95865, 1.92523e-07, 0.525973, 0.42)
 
 [node name="hands" type="Node2D" parent="."]
 position = Vector2(0, -8)
+
+[node name="call_cow" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_f1mj5")
 
 [connection signal="body_entered" from="cow_detector" to="." method="_on_cow_detector_body_entered"]
 [connection signal="body_exited" from="cow_detector" to="." method="_on_cow_detector_body_exited"]
