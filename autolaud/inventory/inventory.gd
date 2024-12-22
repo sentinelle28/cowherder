@@ -76,8 +76,6 @@ func _sell(milk_name:String)->void:
 		if get_amount_of_milk(milk_name) > 0:
 			player_money += get_price(milk_name)
 			_set_amount_of_milk(milk_name,get_amount_of_milk(milk_name)-1)
-		else:
-			print("no milk")
 			
 func _set_amount_of_milk(milk_name:String,number:int)->void:
 	find_correspondant(milk_name)._set_amount(number)
