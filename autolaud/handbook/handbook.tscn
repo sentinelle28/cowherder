@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://rjfqx5hgfhm8"]
+[gd_scene load_steps=9 format=3 uid="uid://rjfqx5hgfhm8"]
 
 [ext_resource type="Script" path="res://autolaud/handbook/handbook.gd" id="1_1dmga"]
 [ext_resource type="Texture2D" uid="uid://bb15env6xjvf8" path="res://asset/ui/Menu Buttons/Icons/Arrow2.png" id="2_jcvsq"]
 [ext_resource type="Theme" uid="uid://c07dob5nypfph" path="res://asset/handbook/handbook.tres" id="2_v1vrg"]
 [ext_resource type="Texture2D" uid="uid://dwa0552n0djiy" path="res://asset/ui/Menu Buttons/Icons/Arrow.png" id="3_1cpkv"]
 [ext_resource type="LabelSettings" uid="uid://c1hf54av562hi" path="res://autolaud/handbook/title_label_setting.tres" id="3_upe3m"]
+[ext_resource type="Theme" uid="uid://bkgbmcw5ocw8w" path="res://asset/handbook/button_theme.tres" id="6_xeul3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_t50ay"]
 font_size = 20
@@ -585,5 +586,17 @@ grow_vertical = 0
 label_settings = SubResource("LabelSettings_4n26a")
 horizontal_alignment = 1
 
+[node name="quit" type="Button" parent="button"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -8.0
+offset_bottom = 8.0
+grow_horizontal = 0
+theme = ExtResource("6_xeul3")
+text = "X"
+
 [connection signal="pressed" from="button/previous" to="." method="_on_previous_pressed"]
 [connection signal="pressed" from="button/next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="button/quit" to="." method="_on_quit_pressed"]

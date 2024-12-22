@@ -52,3 +52,7 @@ func _on_sell_button_pressed() -> void:
 
 func _update_milk_counter()->void:
 	label.text = str(Inventory.get_amount_of_milk(list_of_milk[last_cliked_item]))
+
+
+func _on_quit_pressed() -> void:
+	GlobaleEscape._quit()

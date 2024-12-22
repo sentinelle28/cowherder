@@ -132,8 +132,20 @@ grow_vertical = 2
 text = "0"
 horizontal_alignment = 1
 
+[node name="quit" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -8.0
+offset_bottom = 8.0
+grow_horizontal = 0
+theme = ExtResource("5_oqohd")
+text = "X"
+
 [node name="buy" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_57mjl")
 
 [connection signal="item_clicked" from="Panel/actual_item_list" to="." method="_on_actual_item_list_item_clicked"]
 [connection signal="pressed" from="Panel/Control/sell_button" to="." method="_on_sell_button_pressed"]
+[connection signal="pressed" from="Panel/quit" to="." method="_on_quit_pressed"]

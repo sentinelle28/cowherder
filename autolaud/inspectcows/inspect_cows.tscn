@@ -1,10 +1,46 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvwmihp2e202h"]
+[gd_scene load_steps=8 format=3 uid="uid://dvwmihp2e202h"]
 
 [ext_resource type="Script" path="res://autolaud/inspectcows/inspect_cows.gd" id="1_h2ahv"]
 [ext_resource type="Theme" uid="uid://c07dob5nypfph" path="res://asset/handbook/handbook.tres" id="2_b8csk"]
 [ext_resource type="Texture2D" uid="uid://6dni6ljuoxa1" path="res://asset/milk/milk_background.png" id="2_trqw1"]
 [ext_resource type="Texture2D" uid="uid://bwdifoc5l0quk" path="res://asset/milk/milk_over.png" id="3_28e5h"]
 [ext_resource type="Theme" uid="uid://bkgbmcw5ocw8w" path="res://asset/handbook/button_theme.tres" id="3_amqno"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aj122"]
+bg_color = Color(0.717855, 0.576342, 0.325154, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="Theme" id="Theme_hxjdd"]
+TextEdit/colors/background_color = Color(0, 0, 0, 0)
+TextEdit/colors/caret_background_color = Color(0, 0, 0, 1)
+TextEdit/colors/caret_color = Color(0, 0, 0, 1)
+TextEdit/colors/current_line_color = Color(0, 0, 0, 1)
+TextEdit/colors/font_color = Color(1, 1, 1, 1)
+TextEdit/colors/font_outline_color = Color(0, 0, 0, 1)
+TextEdit/colors/font_placeholder_color = Color(0, 0, 0, 1)
+TextEdit/colors/font_readonly_color = Color(0, 0, 0, 1)
+TextEdit/colors/font_selected_color = Color(0, 0, 0, 1)
+TextEdit/colors/search_result_border_color = Color(0, 0, 0, 1)
+TextEdit/colors/search_result_color = Color(0, 0, 0, 1)
+TextEdit/colors/selection_color = Color(0, 0, 0, 1)
+TextEdit/colors/word_highlighted_color = Color(0, 0, 0, 1)
+TextEdit/constants/caret_width = 0
+TextEdit/constants/line_spacing = 0
+TextEdit/constants/outline_size = 0
+TextEdit/font_sizes/font_size = 16
+TextEdit/fonts/font = null
+TextEdit/icons/space = null
+TextEdit/icons/tab = null
+TextEdit/styles/focus = null
+TextEdit/styles/normal = SubResource("StyleBoxFlat_aj122")
+TextEdit/styles/read_only = null
 
 [node name="InspectCows" type="CanvasLayer"]
 process_mode = 2
@@ -60,6 +96,7 @@ layout_mode = 0
 offset_left = -152.0
 offset_right = -8.0
 offset_bottom = 35.0
+theme = SubResource("Theme_hxjdd")
 placeholder_text = "Enter new name"
 scroll_fit_content_height = true
 

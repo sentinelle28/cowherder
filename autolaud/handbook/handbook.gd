@@ -49,3 +49,7 @@ func _on_previous_pressed() -> void:
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("escape") and visible:
 		_quit()
+
+
+func _on_quit_pressed() -> void:
+	GlobaleEscape._quit()

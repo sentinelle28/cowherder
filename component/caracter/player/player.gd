@@ -43,10 +43,12 @@ func _call_cow()->void:
 	var new_child:LabelPrefab = load("res://component/label_prefab/label_prefab.tscn").instantiate()
 	if not cow_manager.get_mode():
 		new_child._set_text("Come here boys")
+		new_child.position = Vector2(-50,-30)
 	else:
 		new_child._set_text("Time to rest")
+		new_child.position = Vector2(-40,-30)
 	new_child._set_color(Color.WHITE)
-	new_child.position = Vector2(10,-30)
+	
 	add_child(new_child)
 	$call_cow.play()
 	cow_manager._change_mode()

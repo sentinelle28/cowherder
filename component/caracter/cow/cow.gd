@@ -41,10 +41,10 @@ func _move()->void:
 		$AnimationPlayer.play("RESET")
 	
 	if can_move and is_following_the_player:
-		_follow_the_player()
-		var direction:Vector2 = global_position.direction_to($NavigationAgent2D.get_next_path_position())
-		velocity = direction*speed
-		_walk_sprite(direction.x)
+		if is_close_to_player():
+			_close_behavior()
+		else:
+			_far_behavior()
 	elif can_move and not is_following_the_player:
 		if not is_sleeping:
 			var direction:Vector2 = global_position.direction_to($NavigationAgent2D.get_next_path_position())
@@ -54,14 +54,31 @@ func _move()->void:
 			$AnimationPlayer.play("sleeping")
 			velocity = Vector2.ZERO
 	else:
-		$AnimatedSprite2D.play("idle")
+		_play_anim("idle")
 		velocity = Vector2.ZERO
 	
 
 func _walk_sprite(x_direction:float)->void:
-	if $AnimatedSprite2D.animation != "walk":
-		$AnimatedSprite2D.play("walk")
+	_play_anim("walk")
 	$AnimatedSprite2D.flip_h = x_direction < 0
+
+func is_close_to_player()->bool:
+	return global_position.distance_to(waypoint.global_position) < 10
+
+func _play_anim(anim:String)->void:
+	if $AnimatedSprite2D.animation != anim:
+		$AnimatedSprite2D.play(anim)
+
+
+func _close_behavior()->void:
+	_play_anim("idle")
+	velocity = Vector2.ZERO
+	
+func _far_behavior()->void:
+	_follow_the_player()
+	var direction:Vector2 = global_position.direction_to($NavigationAgent2D.get_next_path_position())
+	velocity = direction*speed
+	_walk_sprite(direction.x)
 
 func _follow_the_player()->void:
 	$NavigationAgent2D.target_position = waypoint.global_position

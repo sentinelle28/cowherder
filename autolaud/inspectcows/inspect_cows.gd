@@ -39,13 +39,13 @@ func _on_submitbutton_pressed() -> void:
 		editname.text = ""
 		submitbutton.hide()
 		namelabel.show()
+	else:
+		submitbutton.hide()
+		namelabel.show()
 
 
-		
-func _quit()->void:
-	hide()
-	get_tree().paused = false
-	Daycycle._start()
 
 func _on_exit_button_pressed() -> void:
-	_quit()
+	submitbutton.hide()
+	namelabel.show()
+	GlobaleEscape._quit()

@@ -140,9 +140,21 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_xj543")
 
+[node name="quit" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -8.0
+offset_bottom = 8.0
+grow_horizontal = 0
+theme = ExtResource("4_yomj3")
+text = "X"
+
 [node name="buy" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_6usfe")
 bus = &"sfx"
 
 [connection signal="pressed" from="Panel/Control/Buy_button" to="." method="_on_buy_button_pressed"]
 [connection signal="item_selected" from="Panel/ItemList" to="." method="_on_item_list_item_selected"]
+[connection signal="pressed" from="Panel/quit" to="." method="_on_quit_pressed"]
