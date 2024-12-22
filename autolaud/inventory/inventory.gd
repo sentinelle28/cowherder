@@ -30,7 +30,7 @@ class Milk:
 
 var MilkName:Array[String] = ["Common"]
 var MilkObject:Array[Milk] = [Milk.new(Color.WHITE,1)]
-var player_money:int = 1000
+var player_money:int = 0
 
 func _reset()->void:
 	MilkName = ["Common"]
