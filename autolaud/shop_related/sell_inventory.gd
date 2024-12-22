@@ -32,10 +32,7 @@ func _update_milk()->void:
 	for i:int in range(len(list_of_milk),Inventory.get_variety_number()):
 		_add_new_milk(Inventory.get_milk_with_index(i))
 	
-func _quit()->void:
-	hide()
-	get_tree().paused = false
-	Daycycle._start()
+
 	
 func _activate()->void:
 	show()
