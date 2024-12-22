@@ -51,3 +51,4 @@ func _spawn_label(text:String,color:Color)->void:
 	var new_label:LabelPrefab = label_prefab.instantiate()
 	new_label._set_text(text)
 	new_label._set_color(color)
+	add_child(new_label)

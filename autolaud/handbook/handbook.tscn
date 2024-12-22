@@ -157,7 +157,7 @@ horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="page_stocker/control/Control/Control"]
 layout_mode = 2
-text = "	First, you can move by pressing wasd"
+text = "	First, you can move by pressing the different arrows"
 horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="page_stocker/control/Control/Control"]

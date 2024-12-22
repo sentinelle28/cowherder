@@ -26,7 +26,7 @@ func _move()->void:
 	_change_sprite(direction)
 	
 func _change_sprite(direction:Vector2)->void:
-	if abs(direction.x) > abs(direction.y):
+	if abs(direction.x) >= abs(direction.y):
 		if direction.x < 0:
 			$AnimatedSprite2D.play("left")
 		else:
